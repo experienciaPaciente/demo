@@ -1,0 +1,106 @@
+@import './assets/scss/layout.scss';
+@import './assets/scss/normalize.scss';
+@import './assets/scss/flag.scss';
+@import './assets/scss/responsive.scss';
+
+// Components
+@import './assets/scss/header.scss';
+@import './assets/scss/buttons.scss';
+@import './assets/scss/tabs.scss';
+@import './assets/scss/inputs.scss';
+
+:root {
+    // Panel
+    --panel__title--align: left;
+    --panel__title--size: 36px;
+    --panel__subtitle--size: 20px;
+    --panel__padding: 10vw;
+    --panel__height: 100vh;
+    --panel__gap: 56px;
+    --panel__bg: white;
+    --panel__title--color: var(var(--primary));
+
+    // Header
+    --header__height: 60px;
+    --header__bg--color: white;
+
+    // Footer
+    --footer__height: 40px;
+
+    // Tabs
+    --tabs__border--color: #ddd;
+    --tab__bg--color: #f1f1f1;
+    --tab__bg--active: #ccc;
+
+    // Flag
+    --flag__width: 100%;
+    --flag__height: 320px;
+    --flag__border--radius: 8px;
+
+    --stripe__height: 45%;
+    --stripe__position--top: 30%;
+    --stripe__position--bottom: 30%;
+    --stripe__bg--color: var(--primary);
+    --stripe__sub--fontSize: 16px;
+    --stripe__sub--fontWeight: bold;
+    --stripe__sub--color: var(--secondary);
+    --stripe__transition: .75s;
+
+    --sun__color: var(--tertiary);
+    --sun__size: 60px;
+    --sun__position--top: calc(--flag__height) / 2 - var(--sun-size) / 2;
+    --sun__position--bottom: calc(--flag__width) / 2 - var(--sun-size) / 2;
+
+      // Colors 
+    --primary: #6CBCFC;
+    --secondary: #d0e2f8;
+    --tertiary: #ffc107;
+    --neutral: #8189B0;
+    --primaryLight: #ECF5FF;
+    --primaryLighter: #D7F6FF;
+    --primaryDark: #243162;
+    --secondaryLight: #e8f0fa;
+    --secondaryDark: #b5d0f2;
+    --tertiaryLight: #ffd678;
+    --neutralLight: #C9D5F3;
+    --neutralDark: rgb(66, 76, 121);
+    --shadow: rgba(140, 140, 140, 0.5);
+    --gradient: linear-gradient(to top right, #317aa0, #0abebb, #87d1b6);
+    --box-shadow: 2px 0 4px var(--shadow);
+
+    // Semantics
+    --info: #6CBCFC;
+    --info--light: #EFF7FF;
+    --warning: #ff9a00;
+    --warning--light: #FCEBD0;
+    --success: #23D3BD;
+    --success--light: #c9f5ef;
+    --success--dark: #18b09f;
+    --danger--dark: #cf4254;
+    --danger: #FD5B71;
+    --danger--light: #fcc9d0;
+    --severe: #6c5cd5;
+    --severe--light: #c8b8fa;
+
+    // Button 
+    --button__padding--vertical: .5rem;
+    --button__padding--row: .9rem;
+    --button__padding: var(--button__padding--vertical) var(--button__padding--row);
+    --button__height: fit-content;
+    --button__width: max-content;
+    --button__font--size: 14px;
+    --button__border--color: var(--button__text--color);
+    --button__border: solid 2px var(--button__border--color);
+    --button__border--radius: 6px;
+    --button__text--color: var(--primary);
+    --button__bg--color: transparent;
+    --button__opacity: 50%;
+    --button__icon--color: inherit; // Reveer
+    --button__group--width: 96px;
+    --button__text--align: center;
+    --button__wrapper--gap: 16px;
+
+    // Input
+    --form__label--color: var(var(--neutral))
+    --input__padding: 16px;
+  }

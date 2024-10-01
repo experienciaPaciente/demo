@@ -1,0 +1,85 @@
+@media screen and (max-width: 768px) {
+
+    .section__panel {
+        --panel__padding: 48px 36px;
+
+        .inner__wrapper {
+            flex-direction: column;
+        }
+
+        .inner__wrapper--right {
+            align-items: center;
+            text-align: center;
+        }
+
+        .panel__title, .panel__title--center {
+            --panel__title--size: 24px;
+        }
+
+        .panel__title--xxl {
+            --panel__title--size: 48px;
+        }
+        
+        .panel__subtitle, .panel__subtitle--center {
+            --panel__subtitle--size: 16px;
+
+        }
+    }
+
+    .flag {
+        --flag__height: 240px;
+
+        [class^=stripe__inner-wrapper] {
+            transform: scale(0.9);
+        }
+
+        .stripe__inner-wrapper--top {
+            bottom: 0%;
+        }
+        
+        .stripe__inner-wrapper--bottom {
+            top: 0%;
+        }
+    }
+
+    #historico {
+        .text__wrapper--col {
+            justify-content: flex-start;
+            row-gap: 24px;
+            height: fit-content;
+        }
+
+        article.wrapper--col {
+            width: 100%;
+        }
+
+        hr.divider--sm {
+            align-self: center;
+        }
+
+    }
+
+    #geografico {
+
+    }
+
+    #outro {
+
+        .inner__wrapper--left {
+            justify-content: flex-start;
+            height: min-content;
+        }
+
+        .panel__title {
+            text-align: center;
+        }
+
+        .btn__wrapper--row {
+            width: 100%;
+            justify-content: center;
+        }
+
+    }
+
+
+}

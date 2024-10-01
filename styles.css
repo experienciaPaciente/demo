@@ -1,0 +1,1183 @@
+.section__panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: fit-content;
+  height: var(--panel__height);
+  padding: var(--panel__padding);
+  text-align: var(--panel__title--align);
+  box-sizing: border-box;
+  gap: var(--panel__gap);
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: start;
+}
+.section__panel .inner__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: max-content;
+  gap: var(--panel__gap);
+}
+.section__panel .inner__wrapper--left {
+  --panel__gap: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  flex: 1;
+  row-gap: var(--panel__gap);
+  height: 100%;
+}
+.section__panel .inner__wrapper--left .home__flag--static {
+  min-width: 240px;
+  width: 100%;
+  height: 100%;
+}
+.section__panel hr.divider--sm {
+  width: 48px;
+  height: 4px;
+  background-color: var(--neutralLight);
+  border-radius: 2px;
+  border: transparent;
+}
+.section__panel .inner__wrapper--right {
+  --panel__gap: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1;
+  row-gap: var(--panel__gap);
+}
+.section__panel .title__wrapper--col {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+.section__panel .text__wrapper--col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: var(--flag__height);
+}
+.section__panel .text__wrapper--row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 48px;
+}
+.section__panel .panel__title {
+  --panel__title--color: var(--primaryDark);
+  font-size: var(--panel__title--size);
+  color: var(--panel__title--color);
+  font-weight: 400;
+  line-height: 1.35;
+}
+.section__panel .panel__title--center {
+  --panel__title--align: center;
+  width: 100%;
+  display: block;
+  font-size: var(--panel__title--size);
+  color: var(--primaryDark);
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: var(--panel__title--align);
+  order: 1;
+}
+.section__panel .panel__title--xxl {
+  --panel__title--size: 60px;
+  font-size: var(--panel__title--size);
+  color: var(--primaryDark);
+  font-weight: bolder;
+}
+.section__panel .panel__subtitle {
+  font-size: var(--panel__subtitle--size);
+  color: var(--neutral);
+  font-weight: normal;
+  line-height: 1.5;
+}
+.section__panel .panel__subtitle--center {
+  font-size: var(--panel__subtitle--size);
+  color: var(--neutral);
+  font-weight: normal;
+  line-height: 1.5;
+  text-align: center;
+  order: 1;
+}
+.section__panel .kpi__wrapper--col {
+  --panel__gap: 12px;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--panel__gap);
+}
+.section__panel .panel__prefix {
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--neutral);
+}
+.section__panel .panel__subfix {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--neutral);
+}
+.section__panel .panel__number {
+  font-size: 36px;
+  color: var(--kpi__color);
+  font-weight: bolder;
+}
+.section__panel #porcentaje-indigencia {
+  --kpi__color: var(--danger);
+}
+.section__panel #porcentaje-pobreza {
+  --kpi__color: var(--severe);
+}
+.section__panel .text__color--tertiary {
+  color: var(--tertiary);
+}
+.section__panel .text__color--severe {
+  color: var(--severe);
+}
+.section__panel .text__color--danger {
+  color: var(--danger);
+}
+.section__panel .text__color--white {
+  color: white;
+}
+
+#intro.section__panel {
+  height: calc(100vh - var(--header__height));
+}
+
+#historico.section__panel {
+  --panel__bg: var(--secondaryLight);
+  background-color: var(--panel__bg);
+}
+#historico.section__panel .inner__wrapper {
+  flex-wrap: wrap-reverse;
+}
+
+#geografico {
+  --panel__bg: var(--primaryDark);
+  background-color: var(--panel__bg);
+  color: white;
+}
+#geografico .panel__title {
+  --panel__title--color: var(--secondaryLight);
+  font-size: var(--panel__title--size);
+  color: var(--panel__title--color);
+  font-weight: 400;
+  line-height: 1.35;
+}
+#geografico .panel__subtitle {
+  --panel__title--align: left;
+  text-align: var(--panel__title--align);
+}
+#geografico .panel__title--xxl {
+  color: var(--neutralLight);
+}
+#geografico .panel__prefix {
+  color: var(--neutral);
+}
+#geografico .panel__subfix {
+  color: var(--neutral);
+}
+#geografico .panel__number {
+  color: var(--kpi__color);
+}
+#geografico #porcentaje-ind-region {
+  --kpi__color: var(--danger);
+}
+#geografico #porcentaje-pob-region {
+  --kpi__color: var(--severe);
+}
+
+#outro.section__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--primary);
+  color: var(--primaryDark);
+  height: calc(100vh - var(--footer__height));
+}
+#outro.section__panel .inner__wrapper--left {
+  text-align: right;
+  justify-content: space-between;
+  align-items: end;
+  flex: 1;
+}
+#outro.section__panel .inner__wrapper--right {
+  justify-content: start;
+  flex: 1;
+}
+
+footer {
+  height: var(--footer__height);
+  background-color: var(--primaryDark);
+  padding: 12px var(--panel__padding);
+  box-sizing: border-box;
+}
+footer small {
+  color: var(--secondaryLight);
+}
+footer small a:visited {
+  color: var(--primary) !important;
+}
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+	 ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Sections
+	 ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  font-family: "Inter", "Montserrat", sans-serif;
+  margin: 0;
+  gap: var(--panel__gap);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.25em 0;
+}
+
+h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+figure figcaption {
+  color: var(--neutral);
+  font-style: italic;
+  font-size: 14px;
+  margin: 16px 0;
+  line-height: 1.35;
+}
+
+/* Grouping content
+	 ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: hidden;
+  border: solid 1px var(--neutralLight);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Text-level semantics
+	 ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+	 ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+	 ========================================================================== */
+form {
+  width: 100%;
+}
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+  border: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* Interactive
+	 ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+detalle {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+	 ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+a, ul, li {
+  text-decoration: none;
+  color: var(--button__text--color);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a:hover, ul:hover, li:hover {
+  color: var(--button__text--color);
+  filter: brightness(95%);
+}
+a:visited, ul:visited, li:visited {
+  color: var(--button__text--color);
+  filter: brightness(90%);
+}
+
+/* Flag */
+.flag {
+  width: var(--flag__width);
+  height: var(--flag__height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.flag .flag__stripe--static--top, .flag .flag__stripe--static--bottom {
+  background-color: var(--primary);
+  height: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.flag .flag__stripe--static--top {
+  border-top-left-radius: var(--flag__border--radius);
+  border-top-right-radius: var(--flag__border--radius);
+}
+.flag .flag__stripe--static--bottom {
+  border-bottom-left-radius: var(--flag__border--radius);
+  border-bottom-right-radius: var(--flag__border--radius);
+}
+.flag .flag__inner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 40%;
+}
+.flag .flag__inner-wrapper hr.flag__divider--top, .flag .flag__inner-wrapper hr.flag__divider--middle, .flag .flag__inner-wrapper hr.flag__divider--bottom {
+  position: absolute;
+  top: var(--flag__position--top);
+  left: -20px;
+  width: calc(100% + 40px);
+  border: var(--flag__divider);
+  z-index: 1;
+}
+.flag .flag__inner-wrapper hr.flag__divider--bottom {
+  --flag__divider: dashed 1.25px var(--secondaryDark);
+  --flag__position--top: 0%;
+}
+.flag .flag__inner-wrapper hr.flag__divider--middle {
+  --flag__divider: dashed 1.25px var(--tertiary);
+  --flag__position--top: 50%;
+}
+.flag .flag__inner-wrapper hr.flag__divider--top {
+  --flag__divider: dashed 1.25px var(--secondaryDark);
+  --flag__position--top: 100%;
+}
+.flag .flag__stripe--bottom, .flag .flag__stripe--top {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: var(--flag__stripe--height);
+  background-color: var(--primary);
+  transition: height var(--stripe__transition) ease-in-out;
+}
+.flag .flag__stripe--top {
+  top: 0;
+  position: relative;
+}
+.flag .flag__stripe--top:hover {
+  background-color: var(--severe);
+}
+.flag .stripe__blink--top {
+  animation: infinite blinkTop 1s;
+}
+@keyframes blinkTop {
+  0% {
+    background-color: var(--primary);
+  }
+  100% {
+    background-color: var(--severe);
+  }
+  0% {
+    background-color: var(--primary);
+  }
+}
+.flag .flag__stripe--bottom {
+  bottom: 0;
+  position: relative;
+}
+.flag .flag__stripe--bottom:hover {
+  background-color: var(--danger);
+}
+.flag .stripe__blink--bottom {
+  animation: infinite blinkBottom 1s;
+}
+@keyframes blinkBottom {
+  0% {
+    background-color: var(--primary);
+  }
+  100% {
+    background-color: var(--danger);
+  }
+  0% {
+    background-color: var(--primary);
+  }
+}
+.flag .stripe__inner-wrapper--bottom, .flag .stripe__inner-wrapper--top {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  mix-blend-mode: luminosity;
+}
+.flag .stripe__inner-wrapper--top {
+  bottom: 25%;
+}
+.flag .stripe__inner-wrapper--bottom {
+  top: 50%;
+}
+.flag .flag__inner-text--bottom, .flag .flag__inner-text--top, .flag .flag__output--bottom, .flag .flag__output--ind, .flag .flag__output--top, .flag .flag__output--pob {
+  font-size: var(--output__font--size);
+  font-weight: 600;
+  text-transform: uppercase;
+  mix-blend-mode: multiply;
+}
+.flag .flag__output--top, .flag .flag__output--pob {
+  --output__font--size: 21px;
+  font-size: var(--output__font--size);
+  color: var(--severe);
+}
+.flag .flag__output--bottom, .flag .flag__output--ind {
+  --output__font--size: 21px;
+  font-size: var(--output__font--size);
+  color: var(--danger--dark);
+}
+.flag .flag__inner-text--top {
+  --output__font--size: 14px;
+  font-size: var(--output__font--size);
+  color: var(--secondary);
+}
+.flag .flag__inner-text--bottom {
+  --output__font--size: 14px;
+  font-size: var(--output__font--size);
+  color: var(--secondary);
+}
+.flag .flag__stripe--middle {
+  height: var(--flag__stripe--height);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  background-color: white;
+}
+.flag .flag__stripe--middle .sun {
+  --sun__width: calc(var(--flag__stripe--height) / 4.5 - 10px);
+  width: var(--sun__width);
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--sun__color);
+  transition: height width var(--stripe__transition) ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .section__panel {
+    --panel__padding: 48px 36px;
+  }
+  .section__panel .inner__wrapper {
+    flex-direction: column;
+  }
+  .section__panel .inner__wrapper--right {
+    align-items: center;
+    text-align: center;
+  }
+  .section__panel .panel__title, .section__panel .panel__title--center {
+    --panel__title--size: 24px;
+  }
+  .section__panel .panel__title--xxl {
+    --panel__title--size: 48px;
+  }
+  .section__panel .panel__subtitle, .section__panel .panel__subtitle--center {
+    --panel__subtitle--size: 16px;
+  }
+
+  .flag {
+    --flag__height: 240px;
+  }
+  .flag [class^=stripe__inner-wrapper] {
+    transform: scale(0.9);
+  }
+  .flag .stripe__inner-wrapper--top {
+    bottom: 0%;
+  }
+  .flag .stripe__inner-wrapper--bottom {
+    top: 0%;
+  }
+
+  #historico .text__wrapper--col {
+    justify-content: flex-start;
+    row-gap: 24px;
+    height: fit-content;
+  }
+  #historico article.wrapper--col {
+    width: 100%;
+  }
+  #historico hr.divider--sm {
+    align-self: center;
+  }
+
+  #outro .inner__wrapper--left {
+    justify-content: flex-start;
+    height: min-content;
+  }
+  #outro .panel__title {
+    text-align: center;
+  }
+  #outro .btn__wrapper--row {
+    width: 100%;
+    justify-content: center;
+  }
+}
+header {
+  --page__body--padding: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem var(--panel__padding);
+  height: var(--header__height);
+  width: 100vw;
+  background: var(--header__bg--color);
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+}
+@media screen and (max-width: 979px) {
+  header {
+    --page__body--padding: 2rem;
+  }
+  header #ep__logo--desktop {
+    display: none;
+  }
+}
+header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--header__gap--horizontal);
+}
+header div i {
+  font-size: var(--icon--size);
+}
+header div ~ i.fa-bars {
+  display: none;
+}
+
+button {
+  padding: 0;
+  background: var(--button__bg--color);
+  font-size: var(--button__font--size);
+  font-weight: 500;
+  color: var(--button__text--color);
+  text-align: var(--button__text--align);
+  border-radius: var(--button__border--radius);
+  width: var(--button__width);
+  height: min-content;
+  text-transform: unset;
+  text-wrap: nowrap;
+}
+
+.btn__wrapper--row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--button__wrapper--gap);
+}
+
+button {
+  position: relative;
+}
+button > a {
+  display: block;
+  padding: var(--button__padding);
+}
+button[size=block] {
+  display: block;
+  width: 100%;
+}
+button:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+}
+button:active {
+  background-color: var(--secondary);
+  color: var(--primaryDark);
+  filter: brightness(95%);
+  cursor: grab;
+}
+button[disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+  user-select: none;
+}
+button[class*=__fill] {
+  --button__border--color: transparent!important;
+  border: solid 2px var(--button__border--color);
+  color: var(--button__text--color);
+}
+button[class*=__outline] {
+  --button__border--color: var(--button__bg--color);
+  background: transparent !important;
+  border: solid 2px var(--button__bg--color);
+  color: var(--button__text--color);
+}
+button[class*=__link] {
+  --button__border--color: var(--button__bg--color);
+  --button__padding: 0;
+  background: transparent !important;
+  border: none !important;
+  color: var(--button__bg--color) !important;
+}
+button[class*=__fab] {
+  --button__text--color: white!important;
+  --button__border--color: transparent!important;
+  position: absolute;
+  width: calc(var(--button__font--size) * 7.5);
+  height: calc(var(--button__font--size) * 7.5);
+  border: solid 2px var(--button__border--color);
+  border-radius: 50%;
+  z-index: 3;
+}
+button[class*=__icon] {
+  background-color: transparent;
+  color: var(--button__text--color);
+  padding: 0.5rem;
+}
+button[class$="--primary"] {
+  --button__text--color: inherit;
+  --button__border--color: var(--primary);
+  --button__bg--color: var(--primary);
+}
+button[class$="--secondary"] {
+  --button__text--color: var(--primaryDark);
+  --button__border--color: var(--secondary);
+  --button__bg--color: var(--secondary);
+}
+button[class$="--tertiary"] {
+  --button__text--color: inherit;
+  --button__border--color: var(--tertiary);
+  --button__bg--color: var(--tertiary);
+}
+button[class$="--success"] {
+  --button__text--color: inherit;
+  --button__bg--color: var(--success);
+}
+button[class$="--warning"] {
+  --button__text--color: inherit;
+  --button__bg--color: var(--warning);
+}
+button[class$="--danger"] {
+  --button__text--color: inherit;
+  --button__bg--color: var(--danger);
+}
+button[class$="--info"] {
+  --button__text--color: inherit;
+  --button__bg--color: var(--info);
+}
+button[class$="--neutral"] {
+  --button__text--color: inherit;
+  --button__bg--color: var(--neutral);
+}
+button.button__size--xxs {
+  --button__padding: .1rem .2rem;
+  --button__font--size: 8px;
+}
+button.button__size--xs {
+  --button__padding: .2rem .25rem;
+  --button__font--size: 10px;
+}
+button.button__size--sm {
+  --button__padding: .35rem .7rem;
+  --button__font--size: 12px;
+}
+button.button__size--md {
+  --button__padding: .5rem 1rem;
+  --button__font--size: 14px;
+}
+button.button__size--lg {
+  --button__padding: 0.65rem 1.25rem;
+  --button__font--size: 16px;
+}
+button.button__size--xl {
+  --button__padding: 0.9rem 1.5rem;
+  --button__font--size: 18px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--tabs-border-color);
+}
+
+.tab__link {
+  background-color: var(--tab-bg-color);
+  border: none;
+  padding: 14px 20px;
+  cursor: pointer;
+}
+.tab__link.active {
+  background-color: var(--tab-active-bg-color);
+}
+
+.tab__content--none {
+  display: none;
+}
+.tab__content--none.active {
+  display: flex;
+}
+
+label {
+  --form__label--color: var(--neutral);
+  color: var(--form__label--color);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input__select--custom select:active, .input__select--custom select.focus, .input__select--custom select:focus-visible, .input__select--custom select {
+  cursor: pointer;
+  width: var(--flag__width);
+  background-color: transparent;
+  color: var(--secondary);
+  font-size: 18px;
+  padding: 16px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("./assets/img/select__chevron--down.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+}
+
+.input__select--custom {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.input__select--custom select {
+  border: solid 2px var(--secondary);
+  border-radius: var(--flag__border--radius);
+  text-overflow: ellipsis;
+}
+.input__select--custom select:active, .input__select--custom select.focus, .input__select--custom select:focus-visible {
+  outline: none;
+  border: solid 2px var(--tertiaryLight);
+  border-radius: var(--flag__border--radius);
+  color: var(--tertiaryLight);
+  background-image: url("./assets/img/select__chevron--up.svg");
+}
+
+.input__date--range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--flag__width);
+  height: 8px;
+  background: var(--neutralLight);
+  border-radius: 5px;
+}
+
+.input__date--range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.input__date--range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.input__date--range::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.input__wrapper--col {
+  --panel__gap: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--panel__gap);
+  width: var(--flag__width);
+}
+
+.input__wrapper--row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: var(--flag__width);
+}
+
+.input__subfix {
+  font-size: 16px;
+  color: var(--neutral);
+}
+
+:root {
+  --panel__title--align: left;
+  --panel__title--size: 36px;
+  --panel__subtitle--size: 20px;
+  --panel__padding: 10vw;
+  --panel__height: 100vh;
+  --panel__gap: 56px;
+  --panel__bg: white;
+  --panel__title--color: var(var(--primary));
+  --header__height: 60px;
+  --header__bg--color: white;
+  --footer__height: 40px;
+  --tabs__border--color: #ddd;
+  --tab__bg--color: #f1f1f1;
+  --tab__bg--active: #ccc;
+  --flag__width: 100%;
+  --flag__height: 320px;
+  --flag__border--radius: 8px;
+  --stripe__height: 45%;
+  --stripe__position--top: 30%;
+  --stripe__position--bottom: 30%;
+  --stripe__bg--color: var(--primary);
+  --stripe__sub--fontSize: 16px;
+  --stripe__sub--fontWeight: bold;
+  --stripe__sub--color: var(--secondary);
+  --stripe__transition: .75s;
+  --sun__color: var(--tertiary);
+  --sun__size: 60px;
+  --sun__position--top: calc(--flag__height) / 2 - var(--sun-size) / 2;
+  --sun__position--bottom: calc(--flag__width) / 2 - var(--sun-size) / 2;
+  --primary: #6CBCFC;
+  --secondary: #d0e2f8;
+  --tertiary: #ffc107;
+  --neutral: #8189B0;
+  --primaryLight: #ECF5FF;
+  --primaryLighter: #D7F6FF;
+  --primaryDark: #243162;
+  --secondaryLight: #e8f0fa;
+  --secondaryDark: #b5d0f2;
+  --tertiaryLight: #ffd678;
+  --neutralLight: #C9D5F3;
+  --neutralDark: rgb(66, 76, 121);
+  --shadow: rgba(140, 140, 140, 0.5);
+  --gradient: linear-gradient(to top right, #317aa0, #0abebb, #87d1b6);
+  --box-shadow: 2px 0 4px var(--shadow);
+  --info: #6CBCFC;
+  --info--light: #EFF7FF;
+  --warning: #ff9a00;
+  --warning--light: #FCEBD0;
+  --success: #23D3BD;
+  --success--light: #c9f5ef;
+  --success--dark: #18b09f;
+  --danger--dark: #cf4254;
+  --danger: #FD5B71;
+  --danger--light: #fcc9d0;
+  --severe: #6c5cd5;
+  --severe--light: #c8b8fa;
+  --button__padding--vertical: .5rem;
+  --button__padding--row: .9rem;
+  --button__padding: var(--button__padding--vertical) var(--button__padding--row);
+  --button__height: fit-content;
+  --button__width: max-content;
+  --button__font--size: 14px;
+  --button__border--color: var(--button__text--color);
+  --button__border: solid 2px var(--button__border--color);
+  --button__border--radius: 6px;
+  --button__text--color: var(--primary);
+  --button__bg--color: transparent;
+  --button__opacity: 50%;
+  --button__icon--color: inherit;
+  --button__group--width: 96px;
+  --button__text--align: center;
+  --button__wrapper--gap: 16px;
+  --form__label--color: var(var(--neutral))
+  --input__padding: 16px;
+}
+
+/*# sourceMappingURL=styles.css.map */

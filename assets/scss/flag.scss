@@ -1,0 +1,216 @@
+ /* Flag */
+  .flag {
+    width: var(--flag__width);
+    height: var(--flag__height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    .flag__stripe--static--top, .flag__stripe--static--bottom {
+      background-color: var(--primary);
+      height: 30%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flag__stripe--static--top {
+      border-top-left-radius: var(--flag__border--radius);
+      border-top-right-radius: var(--flag__border--radius);
+    }
+
+    .flag__stripe--static--bottom {
+      border-bottom-left-radius: var(--flag__border--radius);
+      border-bottom-right-radius: var(--flag__border--radius);
+    }
+
+    .flag__inner-wrapper {
+      position: relative;
+      width: 100%;
+      height: 40%;
+
+      %baseDivider {
+        position: absolute;
+        top: var(--flag__position--top);
+        left: -20px;
+        width: calc(100% + 40px);
+        border: var(--flag__divider);
+        z-index: 1;
+      }
+
+      hr.flag__divider--bottom {
+        --flag__divider: dashed 1.25px var(--secondaryDark);
+        --flag__position--top: 0%;
+        @extend %baseDivider;
+      }
+
+      hr.flag__divider--middle {
+        --flag__divider: dashed 1.25px var(--tertiary);
+        --flag__position--top: 50%;
+        @extend %baseDivider;
+      }
+
+      hr.flag__divider--top {
+        --flag__divider: dashed 1.25px var(--secondaryDark);
+        --flag__position--top: 100%;
+        @extend %baseDivider;
+      }
+    } 
+
+    %baseFranjaDinamica {
+      display: flex;
+      flex-direction: column;
+      row-gap: 6px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: var(--flag__stripe--height);
+      background-color: var(--primary);
+      transition: height var(--stripe__transition) ease-in-out;
+    }
+
+    .flag__stripe--top {
+      @extend %baseFranjaDinamica;
+      top: 0;
+      position: relative;
+
+      &:hover {
+        background-color: var(--severe);
+        // mix-blend-mode: multiply;
+      }
+    }
+    
+    .stripe__blink--top {
+      animation: infinite blinkTop 1s;
+
+    @keyframes blinkTop {
+      0% {
+        background-color: var(--primary);
+      }
+      
+      100% {
+        background-color: var(--severe);
+      }
+
+      0% {
+        background-color: var(--primary);
+      }
+    }
+    }
+    
+    .flag__stripe--bottom {
+      @extend %baseFranjaDinamica;
+      bottom: 0;
+      position: relative;
+
+      &:hover {
+        background-color: var(--danger);
+        // mix-blend-mode: multiply;
+      }
+    }
+
+    .stripe__blink--bottom {
+      animation: infinite blinkBottom 1s;
+    }
+
+    @keyframes blinkBottom {
+      0% {
+        background-color: var(--primary);
+      }
+      
+      100% {
+        background-color: var(--danger);
+      }
+
+      0% {
+        background-color: var(--primary);
+      }
+    }
+
+    // Stripes
+    %baseWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+      align-items: center;
+      position: absolute;
+      z-index: 2;
+      mix-blend-mode: luminosity;
+    }
+
+
+    .stripe__inner-wrapper {
+
+      &--top {
+        @extend %baseWrapper;
+        bottom: 25%;
+      }
+      
+      &--bottom {
+        @extend %baseWrapper;
+        top: 50%;
+      }
+    }
+        
+    %baseOutput {
+    font-size: var(--output__font--size);
+    font-weight: 600;
+    text-transform: uppercase;
+    mix-blend-mode: multiply;
+    }
+
+    .flag__output--top, .flag__output--pob {
+    --output__font--size: 21px;
+    @extend %baseOutput;
+    font-size: var(--output__font--size);
+    color: var(--severe);
+    }
+
+    .flag__output--bottom, .flag__output--ind {
+    --output__font--size: 21px;
+    @extend %baseOutput;
+    font-size: var(--output__font--size);
+    color: var(--danger--dark);
+    }
+
+    .flag__inner-text--top  {
+    --output__font--size: 14px;
+    @extend %baseOutput;
+    font-size: var(--output__font--size);
+    color: var(--secondary);
+    }
+
+    .flag__inner-text--bottom {
+    --output__font--size: 14px;
+    @extend %baseOutput;
+    font-size: var(--output__font--size);
+    color: var(--secondary);
+    } 
+
+    .flag__stripe--middle {
+      height: var(--flag__stripe--height);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      box-sizing: border-box;
+      background-color: white;
+
+      .sun {
+        --sun__width: calc(var(--flag__stripe--height) / 4.5 - 10px);
+        width: var(--sun__width);
+        height: 100%;
+        border-radius: 50%;
+        background-color: var(--sun__color);
+        transition: height width var(--stripe__transition) ease-in;
+      }
+    }
+  }
+  

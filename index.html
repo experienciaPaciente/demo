@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="./assets/js/includeHTML.js"></script>
+  <title>Yo quiero mi flag</title>
+</head>
+<body>
+  <!-- Resolver posicionamiento -->
+  <header include-html="components/header.html"></header>
+  
+  <!-- Segmentar HTML -->
+  <section id="intro" class="section__panel">
+    <div class="inner__wrapper">
+      <div class="inner__wrapper--right">
+        <h3 class="panel__title">
+          Un país con <b class="text__color--severe">pobreza</b> e <b class="text__color--danger">indigencia</b>, es un país sin <b class="text__color--tertiary">oportunidades.</b>
+        </h3>
+        <h5 class="panel__subtitle">
+          Los últimos datos del INDEC muestran que el primer semestre del 2024, la pobreza ascendió al 54,9% y la indigencia al 33,7%, los registros más altos en más de 20 años.      </h5>
+        <button type="button" class="btn__outline--primary">
+          <a href="#historico">Nuestra bandera desde 2003</a>
+          </button>
+      </div>
+
+      <div class="inner__wrapper--left">
+          <img src="./assets/img/home__flag--static.svg" class="home__flag--static" alt="">
+      </div>
+
+    </div>
+  </section>
+
+    <section id="historico" class="section__panel">
+      <div class="inner__wrapper">
+
+        <div class="inner__wrapper--right">
+          <div class="text__wrapper--col">
+            <article class="wrapper--col">
+              <h3 class="panel__prefix">Año seleccionado</h3>
+              <output id="selectedYear" class="panel__title--xxl"></output>
+            </article>
+            <hr class="divider--sm">
+            <!-- <label for="yearRange">Deslice para navegar los años</label> -->
+            <div class="text__wrapper--row">
+              <article class="kpi__wrapper--col">
+                <h3 class="panel__prefix">Pobreza</h3>
+                <output id="porcentaje-pobreza" class="panel__number"></output>
+                <p id="personas-pobreza" class="panel__subfix"></p>
+              </article>
+              <article class="kpi__wrapper--col">
+                <h3 class="panel__prefix">Indigencia</h3>
+                <output id="porcentaje-indigencia" class="panel__number"></output>
+                <p id="personas-indigencia" class="panel__subfix"></p>
+              </article>
+            </div>
+          </div>
+          <button type="button" class="btn__outline--primary">
+            <a href="#geografico">Nuestra bandera por lugar</a>
+          </button>
+        </div>
+        <!-- Contenedor interno -->
+        <div class="inner__wrapper--left">
+
+          <!-- Bandera -->
+          <figure class="flag">
+            <div class="flag__stripe--static--top">
+            </div>
+            <div class="flag__inner-wrapper">
+              <span id="pobreza" class="flag__stripe--top">
+                <article class="stripe__inner-wrapper--top">
+                  <p class="flag__inner-text--top">Pobreza</p>
+                  <output class="flag__output--top"></output>
+                  <img src="./assets/img/flag__arrow--down.svg" width="21" height="28"  alt="">
+                </article>
+              </span>
+              <span id="oportunidades" class="flag__stripe--middle">
+                <span class="sun"></span>
+              </span>
+              <span id="indigencia" class="flag__stripe--bottom">
+                <article class="stripe__inner-wrapper--bottom">
+                  <img src="./assets/img/flag__arrow--up.svg" width="21" height="28"  alt="">
+                  <output class="flag__output--bottom"></output>
+                  <p class="flag__inner-text--bottom">Indigencia</p>
+                </article>
+              </span>
+              <hr class="flag__divider--bottom">
+              <hr class="flag__divider--middle">
+              <hr class="flag__divider--top">
+            </div>
+            <div class="flag__stripe--static--bottom">
+
+            </div>
+                <!-- <figcaption>El primer semestre de 2003 y el segundo de 2015 no presentaban datos, por lo que se muestra un promerdio anual.</figcaption> -->
+          </figure> 
+          <div class="input__wrapper--col">
+            <label for="" class="">Deslice el slider para cambiar de año</label>
+            <input type="range" id="yearRange" class="input__date--range" min="2003" max="2024" value="2003" oninput="updateYear(this.value)">
+            <article class="input__wrapper--row">
+              <span class="input__subfix">2003</span>
+              <span class="input__subfix">2024</span>
+            </article>
+          </div>
+        </div>
+        <article class="title__wrapper--col">
+          <h2 class="panel__title--center">Evolución de la <b>pobreza</b> y la <b>indigencia</b> en Argentina</h2>
+          <p class="panel__subtitle--center">
+            Desde los años 70, la pobreza e indigencia han fluctuado de manera ascendente. Aunque se redujeron en los 90, repuntaron durante la crisis del 2001. Las políticas sociales desde 2003 mejoraron los indicadores, pero en los años post-pandémicos ambos volvieron a empeorar.</p>
+        </article>
+      </div>
+
+    </section>
+
+    <section id="geografico" class="section__panel">
+      <div class="inner__wrapper">
+
+      <div class="inner__wrapper--left">
+        <span class="input__wrapper--col">
+          <label for="regionSelect">Seleccionar Región</label>
+          <div class="input__select--custom">
+            <select id="regionSelect" class="form__select--custom" onchange="actualizarBanderaPorRegion()">
+              <option value="" selected>Seleccione un aglomerado</option>
+            </select>
+          </div>
+        </span>
+
+        <!-- Bandera regiones -->
+        <figure class="flag">
+          <div class="flag__stripe--static--top">
+          </div>
+          <div class="flag__inner-wrapper">
+            <span id="pobrezaRegion" class="flag__stripe--top">
+              <article class="stripe__inner-wrapper--top">
+                <p class="flag__inner-text--top">Pobreza</p>
+                <output class="flag__output--pob"></output>
+                <img src="./assets/img/flag__arrow--down.svg" width="21" height="28"  alt="">
+              </article>
+            </span>
+            <span id="middleRegion" class="flag__stripe--middle">
+              <span class="sun"></span>
+            </span>
+            <span id="indigenciaRegion" class="flag__stripe--bottom">
+              <article class="stripe__inner-wrapper--bottom">
+                <img src="./assets/img/flag__arrow--up.svg" width="21" height="28"  alt="">
+                <output class="flag__output--ind"></output>
+                <p class="flag__inner-text--bottom">Indigencia</p>
+              </article>
+            </span>
+            <hr class="flag__divider--bottom">
+            <hr class="flag__divider--middle">
+            <hr class="flag__divider--top">          
+          </div>
+          <div class="flag__stripe--static--bottom">
+          </div>
+              <!-- <figcaption>El primer semestre de 2003 y el segundo de 2015 no presentaban datos, por lo que se muestra un promerdio anual.</figcaption> -->
+        </figure> 
+      </div>
+
+      <div class="inner__wrapper--right">
+
+        <article class="kpi__wrapper--col">
+          <h3 class="panel__prefix">Región seleccionada</h3>
+          <output id="selectedRegion" class="panel__title--xxl"></output>
+        </article>
+        <hr class="divider--sm">
+
+          <div class="text__wrapper--row">
+            <article class="kpi__wrapper--col">
+              <h3 class="panel__prefix">Pobreza</h3>
+              <output id="porcentaje-pob-region" class="panel__number"></output>
+              <p id="personas-pob-region" class="panel__subfix"></p>
+            </article>
+            <article class="kpi__wrapper--col">
+              <h3 class="panel__prefix">Indigencia</h3>
+              <output id="porcentaje-ind-region" class="panel__number"></output>
+              <p id="personas-ind-region" class="panel__subfix"></p>
+            </article>
+          </div>
+          <button type="button" class="btn__fill--secondary">
+            <a href="#outro">Conclusión</a>
+            </button>
+        </div>
+
+      </div>
+  </section>
+
+  <!-- Outro -->
+  <section id="outro" class="section__panel">
+    <div class="inner__wrapper">
+      <div class="inner__wrapper--left">
+        <h3 class="panel__title">
+          Un país con <b>pobreza</b> e <b>indigencia</b>, es un país sin <b class="text__color--white">oportunidades.</b>
+        </h3>
+        <span class="btn__wrapper--row">
+          <button type="button" class="btn__outline--secondary">
+          <a href="#intro">Volver al principio</a>
+          </button>
+          <button type="button" class="btn__fill--secondary">
+            <a href="https://wa.me/?text=Check%20this%20amazing%20site:%20https%3A%2F%2Fexample.com" target="_blank">Compartir por WhatsApp</a>
+          </button>
+        </span>
+      </div>
+      <div class="inner__wrapper--right">
+        <h5 class="panel__subtitle text__color--white">
+          La pobreza e indigencia en Argentina han fluctuado debido al movimiento pendular de los distintos modelos político-económicos que progresivamente han deteriorado el tejido social del país, principalmente en zonas periféricas y menos desarrolladas, reduciendo la capacidad de acceso de millones de personas a bienes básicos y servicios esenciales como la educación, la salud y el empleo.
+        </h5>
+      </div>
+    </div>
+  </section>
+
+  <template id="insights">
+    <h5>
+      Si estás dentro del 29% de las personas que aún cuentan con oportunidades en Argentina, formas parte de un grupo que ha logrado mantener acceso a bienes esenciales, educación y empleo en un contexto cada vez más difícil. Con una brecha social creciente, es fundamental reflexionar sobre la desigualdad y reconocer la realidad de quienes hoy se ven excluidos de estas oportunidades. Más que nunca, es necesario impulsar soluciones que generen inclusión y contribuyan a disminuir la pobreza y la indigencia en el país.
+    </h5>
+  </template>
+
+  <footer>
+    <small>
+      <b>Fuentes:</b>
+      <a href="https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_241C2355AD3A.pdf">INDEC - Incidencia de la Pobreza y de la Indigencia</a> | 
+      <a href="https://chequeado.com/el-explicador/como-evoluciono-la-pobreza-con-cada-presidente/">Chequeado en base al Cedlas (que normalizó serie INDEC) e INDEC</a>
+    </small>
+  </footer>
+
+  <script src="./pobreza-regiones.js"></script>
+  <script src="./pobreza-historico.js"></script>
+  <script src="./tabs.js"></script>
+  <script defer>includeHTML();</script>
+</body>
+</html>

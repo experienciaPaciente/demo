@@ -1,0 +1,278 @@
+.section__panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: fit-content;
+    height: var(--panel__height);
+    padding: var(--panel__padding);
+    text-align: var(--panel__title--align);
+    box-sizing: border-box;
+    gap: var(--panel__gap);
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
+
+    .inner__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: max-content;
+        gap: var(--panel__gap);
+    }
+
+    .inner__wrapper--left {
+        --panel__gap: 36px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        flex: 1;
+        row-gap: var(--panel__gap);
+        height: 100%;
+        
+        .home__flag--static {
+            min-width: 240px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    hr.divider--sm {
+        width: 48px;
+        height: 4px;
+        background-color: var(--neutralLight);
+        border-radius: 2px;
+        border: transparent;
+    }
+    
+    .inner__wrapper--right {
+        --panel__gap: 36px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start; 
+        flex: 1;
+        row-gap: var(--panel__gap);
+    }
+
+    .title__wrapper--col {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+    }
+
+    .text__wrapper--col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: var(--flag__height);
+    }
+
+    .text__wrapper--row {
+        display: flex;
+        flex-direction: row;
+        column-gap: 48px;
+    }
+
+    .panel__title {
+        --panel__title--color: var(--primaryDark);
+        
+        font-size: var(--panel__title--size);
+        color: var(--panel__title--color);
+        font-weight: 400;
+        line-height: 1.35;
+        
+        &--center {
+            --panel__title--align: center;
+
+            width: 100%;
+            display: block;
+            font-size: var(--panel__title--size);
+            color: var(--primaryDark);
+            font-weight: 400;
+            line-height: 1.35;
+            text-align: var(--panel__title--align);
+            order: 1;
+        }
+        
+        &--xxl {
+            --panel__title--size: 60px;
+            font-size: var(--panel__title--size);
+            color: var(--primaryDark);
+            font-weight: bolder;
+        }
+    }
+    
+    .panel__subtitle {
+        font-size: var(--panel__subtitle--size);
+        color: var(--neutral);
+        font-weight: normal;
+        line-height: 1.5;
+
+        &--center {
+            font-size: var(--panel__subtitle--size);
+            color: var(--neutral);
+            font-weight: normal;
+            line-height: 1.5;
+            text-align: center;
+            order: 1;
+        }
+    }
+
+    .kpi__wrapper--col {
+        --panel__gap: 12px;
+
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--panel__gap);
+    }
+
+    .panel__prefix {
+        font-size: 12px;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: var(--neutral);
+    }
+
+    .panel__subfix {
+        font-size: 14px;
+        font-weight: normal;
+        color: var(--neutral);
+    }
+
+    .panel__number {
+        font-size: 36px;
+        color: var(--kpi__color);
+        font-weight: bolder;
+    }
+    
+    #porcentaje-indigencia {
+        --kpi__color: var(--danger);
+    }
+    
+    #porcentaje-pobreza {
+        --kpi__color: var(--severe);
+    }
+
+    .text__color--tertiary {
+        color: var(--tertiary);
+    }
+
+    .text__color--severe {
+        color: var(--severe);
+    }
+
+    .text__color--danger {
+        color: var(--danger);
+    }
+
+    .text__color--white {
+        color: white;
+    }
+}
+
+#intro.section__panel {
+    height: calc(100vh - var(--header__height));
+}
+
+#historico {
+    &.section__panel {
+        --panel__bg: var(--secondaryLight);
+        // flex-wrap: wrap-reverse!important;
+        background-color: var(--panel__bg);
+        
+        .inner__wrapper {
+            flex-wrap: wrap-reverse;
+        }
+    }     
+}
+
+#geografico {
+    --panel__bg: var(--primaryDark);
+    background-color: var(--panel__bg);
+    
+    color: white;
+    
+    .panel__title {
+        // --panel__title--align: left;
+        --panel__title--color: var(--secondaryLight);
+        
+        font-size: var(--panel__title--size);
+        color: var(--panel__title--color);
+        font-weight: 400;
+        line-height: 1.35;
+        // text-align: var(--panel__title--align);
+    }
+    
+    .panel__subtitle {
+        --panel__title--align: left;
+
+        text-align: var(--panel__title--align);
+    }
+
+    .panel__title--xxl {
+        color: var(--neutralLight);
+    }
+    
+    .panel__prefix {
+        color: var(--neutral);
+    }
+
+    .panel__subfix {
+        color: var(--neutral);
+    }
+
+    .panel__number {
+        color: var(--kpi__color);
+    }
+    
+    #porcentaje-ind-region {
+        --kpi__color: var(--danger);
+    }
+    
+    #porcentaje-pob-region {
+        --kpi__color: var(--severe);
+    }
+}
+
+#outro.section__panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary);
+    color: var(--primaryDark);
+    height: calc(100vh - var(--footer__height));
+    
+
+    .inner__wrapper--left {
+        text-align: right;
+        justify-content: space-between;
+        align-items: end;
+        flex: 1; // Reveer comportamiento vs. min-width
+    }
+    
+    .inner__wrapper--right {
+        justify-content: start;
+        flex: 1; // Reveer comportamiento vs. min-width
+    }
+
+}
+
+footer {
+    height: var(--footer__height);
+    background-color: var(--primaryDark);
+    padding: 12px var(--panel__padding);
+    box-sizing: border-box;
+    
+    small {
+        color: var(--secondaryLight);
+        
+        a:visited {
+            color: var(--primary)!important;
+        }
+    }
+}
