@@ -81,12 +81,12 @@
 
       &:hover {
         background-color: var(--severe);
-        // mix-blend-mode: multiply;
       }
     }
     
     .stripe__blink--top {
       animation: infinite blinkTop 1s;
+    }
 
     @keyframes blinkTop {
       0% {
@@ -110,7 +110,6 @@
 
       &:hover {
         background-color: var(--danger);
-        // mix-blend-mode: multiply;
       }
     }
 
@@ -126,7 +125,7 @@
       100% {
         background-color: var(--danger);
       }
-
+      
       0% {
         background-color: var(--primary);
       }
@@ -140,9 +139,8 @@
       align-items: center;
       position: absolute;
       z-index: 2;
-      mix-blend-mode: luminosity;
+      mix-blend-mode: hard-light;
     }
-
 
     .stripe__inner-wrapper {
 
@@ -161,14 +159,13 @@
     font-size: var(--output__font--size);
     font-weight: 600;
     text-transform: uppercase;
-    mix-blend-mode: multiply;
     }
 
     .flag__output--top, .flag__output--pob {
     --output__font--size: 21px;
     @extend %baseOutput;
     font-size: var(--output__font--size);
-    color: var(--severe);
+    color: var(--severe--dark);
     }
 
     .flag__output--bottom, .flag__output--ind {
@@ -210,7 +207,16 @@
         border-radius: 50%;
         background-color: var(--sun__color);
         transition: height width var(--stripe__transition) ease-in;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        output {
+          font-weight: bolder;
+          color: var(--tertiaryDark);
+          mix-blend-mode: multiply;
+          font-size: var(--flag__stripe--height);
+        }
       }
     }
-  }
   

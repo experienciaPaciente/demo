@@ -1,8 +1,8 @@
   window.onload = function() {
     const selectElement = document.getElementById("regionSelect");
-    selectElement.value = "Total Nacional (31 aglomerados urbanos)";
-    updateYear(2003);
+    selectElement.value = "Patagonia";
     actualizarBanderaPorRegion();
+    // updateYear(2003);
 };
 
 function openTab(event, tabName) {
@@ -17,3 +17,27 @@ function openTab(event, tabName) {
   }
   
   document.getElementById("defaultTab").click();
+
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tooltipWrapper = document.querySelector('.tooltip__wrapper');
+    const tooltipContent = document.getElementById('tooltip-pobreza');
+  
+    tooltipWrapper.addEventListener('click', (event) => {
+      event.stopPropagation(); // Para evitar que el evento se propague
+      tooltipContent.style.visibility = 'visible';
+      tooltipContent.style.opacity = '1';
+    });
+  
+    document.addEventListener('click', () => {
+      tooltipContent.style.visibility = 'hidden';
+      tooltipContent.style.opacity = '0';
+    });
+  
+    tooltipWrapper.addEventListener('mouseleave', () => {
+      tooltipContent.style.visibility = 'hidden';
+      tooltipContent.style.opacity = '0';
+    });
+  });
+  

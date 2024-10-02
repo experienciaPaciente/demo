@@ -1,0 +1,55 @@
+
+.tooltip__wrapper {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    top: -16px;
+    right: 0;
+}
+
+.tooltip__icon {
+    fill: #333;
+    width: 20px;
+    height: 20px;
+}
+
+.tooltip__content {
+    position: absolute;
+    top: -40px; // Ajusta según la distancia que quieras del ícono
+    right: -12px;
+    background-color: var(--primaryDark);
+    color: var(--secondaryLight);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    width: max-content;
+    z-index: 10;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        right: 16px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: var(--primaryDark) transparent transparent transparent;
+    }
+}
+
+// Mostrar el tooltip al hacer hover en desktop o tap en mobile
+.tooltip__wrapper:hover .tooltip__content,
+.tooltip__wrapper:focus .tooltip__content {
+    visibility: visible;
+    opacity: 1;
+}
+
+// Soporte para dispositivos móviles con toque
+@media (hover: none) and (pointer: coarse) {
+    .tooltip__wrapper:active .tooltip__content {
+        visibility: visible;
+        opacity: 1;
+    }
+}

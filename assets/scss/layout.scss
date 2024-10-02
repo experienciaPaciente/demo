@@ -19,44 +19,113 @@
         width: 100%;
         height: max-content;
         gap: var(--panel__gap);
+        justify-content: center;
+
+        %baseFlexWrapper {
+    
+            display: flex;
+            flex-direction: var(--panel__wrapper--direction);
+            justify-content: var(--panel__wrapper--justify);
+            align-items: start;
+            flex: 1 1 320px;
+            row-gap: var(--panel__gap);
+        }
+
+        .inner__wrapper--left {
+            --panel__gap: 36px;
+            --panel__wrapper--justify: space-between;
+            --panel__wrapper--direction: column;
+            @extend %baseFlexWrapper;
+            
+            .home__flag--static {
+                min-width: 240px;
+                width: 100%;
+            }
+        }
+
+        .wrapper--col {
+            @extend %baseFlexWrapper;
+            --panel__wrapper--direction: column;
+            --panel__wrapper--justify: flex-start;
+            width: 100%;
+            > .wrapper--row {
+                flex: 1;
+            }
+        }
+    
+        .wrapper--row {
+            @extend %baseFlexWrapper;
+            --panel__wrapper--direction: row;
+            --panel__wrapper--justify: space-between;
+            width: 100%;
+        }
+
+
+        hr.divider--col {
+            width: 48px;
+            height: 4px;
+            background-color: var(--neutralLight);
+            border-radius: 2px;
+            border: transparent;
+        }
+    
+        hr.divider--row {
+            height: 96px;
+            width: 4px;
+            background-color: var(--neutralLight);
+            border-radius: 2px;
+            border: transparent;
+        }
+        
+        .inner__wrapper--right {
+            --panel__gap: 36px;
+            --panel__wrapper--justify: space-between;
+            --panel__wrapper--direction: column;
+
+            @extend %baseFlexWrapper;
+        }
+
     }
 
-    .inner__wrapper--left {
-        --panel__gap: 36px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
-        flex: 1;
+    .inner__wrapper--grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        grid-template-rows: 60px auto auto;
+        grid-auto-flow: row dense;
         row-gap: var(--panel__gap);
-        height: 100%;
-        
-        .home__flag--static {
-            min-width: 240px;
-            width: 100%;
-            height: 100%;
+        column-gap: var(--panel__gap);
+        width: 100%;
+        height: fit-content;
+
+        .inner__wrapper--left {
+            display: flex;
+            flex-direction: column;
+            height: min-content;
+            order: 0;
+            text-align: right;
+        }
+
+        .panel__prefooter {
+            order: 2;
+            align-self: flex-end;
+            grid-row: span 2;
+            justify-self: flex-end;
+
+            .footer__text--sm {
+                font-size: var(--footer__text--sm);
+            }
+        }
+
+        .inner__wrapper--right {
+            grid-row: span 3;
+        }
+
+        .panel__footer {
+            grid-column: 1 / -1;
+            grid-row: 6;
         }
     }
 
-    hr.divider--sm {
-        width: 48px;
-        height: 4px;
-        background-color: var(--neutralLight);
-        border-radius: 2px;
-        border: transparent;
-    }
-    
-    .inner__wrapper--right {
-        --panel__gap: 36px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start; 
-        flex: 1;
-        row-gap: var(--panel__gap);
-    }
 
     .title__wrapper--col {
         display: flex;
@@ -75,7 +144,14 @@
     .text__wrapper--row {
         display: flex;
         flex-direction: row;
-        column-gap: 48px;
+        column-gap: var(--text__wrapper--gap);
+    }
+
+    .text__wrapper--grid {        
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: var(--text__wrapper--gap);
+        width: 100%;
     }
 
     .panel__title {
@@ -98,6 +174,13 @@
             text-align: var(--panel__title--align);
             order: 1;
         }
+
+        &--xl {
+            --panel__title--size: 48px;
+            font-size: var(--panel__title--size);        
+            color: var(--neutralLight);
+            font-weight: bolder;
+        }
         
         &--xxl {
             --panel__title--size: 60px;
@@ -113,6 +196,7 @@
         font-weight: normal;
         line-height: 1.5;
 
+
         &--center {
             font-size: var(--panel__subtitle--size);
             color: var(--neutral);
@@ -120,11 +204,15 @@
             line-height: 1.5;
             text-align: center;
             order: 1;
+            line-clamp: 1;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
     }
 
     .kpi__wrapper--col {
-        --panel__gap: 12px;
+        --panel__gap: 10px;
 
         display: flex;
         flex-direction: column;
@@ -136,16 +224,35 @@
         font-weight: normal;
         text-transform: uppercase;
         color: var(--neutral);
+        text-wrap: nowrap;
+        position: relative;
+    }
+
+
+    .panel__prefix--lg {
+        font-size: 14px;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: var(--neutral);
+        text-wrap: nowrap;
     }
 
     .panel__subfix {
         font-size: 14px;
         font-weight: normal;
-        color: var(--neutral);
+        color: var(--neutralLight);
+        text-wrap: nowrap;
+    }
+
+    .panel__subfix--lg {
+        font-size: 16px;
+        font-weight: normal;
+        color: var(--neutralLight);
+        text-wrap: nowrap;
     }
 
     .panel__number {
-        font-size: 36px;
+        font-size: 32px;
         color: var(--kpi__color);
         font-weight: bolder;
     }
@@ -157,7 +264,25 @@
     #porcentaje-pobreza {
         --kpi__color: var(--severe);
     }
+    
+    #porcentaje-pobrezaTotal {
+        --kpi__color: var(--primaryDark);
+    }
+    
+    #porcentaje-noPobres {
+        --kpi__color: var(--tertiary);
+    }
 
+
+    // Types
+    .text__color--primary {
+        color: var(--primary);
+    }
+
+    .text__color--secondary {
+        color: var(--secondary);
+    }
+    
     .text__color--tertiary {
         color: var(--tertiary);
     }
@@ -173,6 +298,14 @@
     .text__color--white {
         color: white;
     }
+
+    .text__color--neutral {
+        color: var(--neutral);
+    }
+
+    .text__color--neutralLight {
+        color: var(--neutralLight);
+    }
 }
 
 #intro.section__panel {
@@ -182,11 +315,16 @@
 #historico {
     &.section__panel {
         --panel__bg: var(--secondaryLight);
-        // flex-wrap: wrap-reverse!important;
         background-color: var(--panel__bg);
-        
+        flex-wrap: wrap-reverse;
+
         .inner__wrapper {
-            flex-wrap: wrap-reverse;
+            // height: 100%;
+            // flex-wrap: wrap-reverse;
+
+            .panel__subfix {
+                // color: var(--neutral);
+            }
         }
     }     
 }
@@ -223,7 +361,7 @@
     }
 
     .panel__subfix {
-        color: var(--neutral);
+        color: var(--neutralLight);
     }
 
     .panel__number {
@@ -237,32 +375,30 @@
     #porcentaje-pob-region {
         --kpi__color: var(--severe);
     }
-}
-
-#outro.section__panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--primary);
-    color: var(--primaryDark);
-    height: calc(100vh - var(--footer__height));
     
-
-    .inner__wrapper--left {
-        text-align: right;
-        justify-content: space-between;
-        align-items: end;
-        flex: 1; // Reveer comportamiento vs. min-width
+    #porcentaje-pobTotal-region {
+        --kpi__color: var(--secondary);
     }
     
-    .inner__wrapper--right {
-        justify-content: start;
-        flex: 1; // Reveer comportamiento vs. min-width
+    #porcentaje-noPob-region {
+        --kpi__color: var(--tertiary);
     }
-
 }
+
+#historico {
+    &.section__panel {
+        flex-wrap: wrap-reverse!important;
+    }
+}
+
+#outro {
+    --panel__bg: var(--primary);
+    background-color: var(--panel__bg);
+}
+
 
 footer {
+    min-height: 40px;
     height: var(--footer__height);
     background-color: var(--primaryDark);
     padding: 12px var(--panel__padding);

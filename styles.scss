@@ -8,6 +8,7 @@
 @import './assets/scss/buttons.scss';
 @import './assets/scss/tabs.scss';
 @import './assets/scss/inputs.scss';
+@import './assets/scss/tooltip.scss';
 
 :root {
     // Panel
@@ -16,16 +17,19 @@
     --panel__subtitle--size: 20px;
     --panel__padding: 10vw;
     --panel__height: 100vh;
-    --panel__gap: 56px;
+    --panel__width: 100vw;
+    --panel__gap: 96px;
     --panel__bg: white;
     --panel__title--color: var(var(--primary));
+
+    --text__wrapper--gap: 48px;
 
     // Header
     --header__height: 60px;
     --header__bg--color: white;
 
     // Footer
-    --footer__height: 40px;
+    --footer__height: fit-content;
 
     // Tabs
     --tabs__border--color: #ddd;
@@ -34,7 +38,7 @@
 
     // Flag
     --flag__width: 100%;
-    --flag__height: 320px;
+    --flag__height: 360px;
     --flag__border--radius: 8px;
 
     --stripe__height: 45%;
@@ -58,11 +62,12 @@
     --neutral: #8189B0;
     --primaryLight: #ECF5FF;
     --primaryLighter: #D7F6FF;
-    --primaryDark: #243162;
+    --primaryDark: #2b3b76;
     --secondaryLight: #e8f0fa;
     --secondaryDark: #b5d0f2;
     --tertiaryLight: #ffd678;
-    --neutralLight: #C9D5F3;
+    --tertiaryDark: #aa861a;
+    --neutralLight: #a6b4d4;
     --neutralDark: rgb(66, 76, 121);
     --shadow: rgba(140, 140, 140, 0.5);
     --gradient: linear-gradient(to top right, #317aa0, #0abebb, #87d1b6);
@@ -70,7 +75,7 @@
 
     // Semantics
     --info: #6CBCFC;
-    --info--light: #EFF7FF;
+    --info--light: #1b242d;
     --warning: #ff9a00;
     --warning--light: #FCEBD0;
     --success: #23D3BD;
@@ -79,7 +84,8 @@
     --danger--dark: #cf4254;
     --danger: #FD5B71;
     --danger--light: #fcc9d0;
-    --severe: #6c5cd5;
+    --severe--dark: #594bb2;
+    --severe: #7b6be2;
     --severe--light: #c8b8fa;
 
     // Button 
