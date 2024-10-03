@@ -9,14 +9,17 @@
 </head>
 <body>
   <!-- Resolver posicionamiento -->
-  <header include-html="components/header.html"></header>
+  <header id="header" include-html="components/header.html"></header>
   
   <!-- Segmentar HTML -->
   <section id="intro" class="section__panel">
     <div class="inner__wrapper">
-      <span class="inner__wrapper--left">
+      <figure class="inner__wrapper--left">
         <img src="./assets/img/flag.gif" class="home__flag--static" alt="">
-      </span>
+        <figcaption>
+          El sol representa las oportunidades, la franja superior la pobreza y la inferior la indigencia.
+        </figcaption>
+      </figure>
       <span class="inner__wrapper--right">
         <h3 class="panel__title">
           Imaginate si nuestra bandera cambiara según la <b class="text__color--severe">pobreza</b>, <b class="text__color--danger">indigencia</b> y <b class="text__color--tertiary">oportunidades</b> que ofrece el país.
@@ -24,9 +27,16 @@
         <h5 class="panel__subtitle">
           Los últimos datos del INDEC muestran que el primer semestre del 2024, la pobreza ascendió al 54,9% y la indigencia al 33,7%, los registros más altos en más de 20 años.
         </h5>
-        <button type="button" class="btn__outline--primary">
-          <a href="#historico">Cómo sería nuestra bandera desde 2003</a>
-        </button>
+        <div class="btn__wrapper--row">
+          <button type="button" class="btn__outline--primary">
+            <a href="#historico">Cómo varió desde 2003</a>
+            <img src="./assets/img/chevron__down--primaryDark.svg" height="16" width="16">
+          </button>
+          <button type="button" class="btn__outline--info">
+            <a href="#historico">Cómo varia por zonas</a>
+            <img src="./assets/img/chevron__down--primary.svg" height="16" width="16">
+          </button>
+        </div>
       </span>
     </div>
   </section>
@@ -52,39 +62,63 @@
                 <output id="porcentaje-pobrezaTotal" class="panel__title--xl text__color--neutralLight"></output>
                 <p id="personas-pobrezaTotal" class="panel__subfix--lg"></p>
               </article>
+              <button id="toggleIndicadoresH" type="button" class="btn__icon--secondary" onclick="expandirIndicadoresH()">
+                <img src="./assets/img/chevron__down--neutralDark.svg" height="16" width="16">
+              </button>
             </span>
             
               <!-- KPI grid | jerarquizar pobreza total -->
-              <div class="text__wrapper--grid">
+              <div id="indicadoresHistoricos" class="text__wrapper--grid">
                 <article class="kpi__wrapper--col">
                   <h3 class="panel__prefix">Pobreza
-                      <!-- Ícono SVG de ayuda para el tooltip -->
-                      <div class="tooltip__wrapper">
-                        <svg class="tooltip__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                          <circle cx="12" cy="12" r="10" stroke="gray" stroke-width="2" fill="none"></circle>
-                          <text x="12" y="16" text-anchor="middle" font-size="12" fill="gray">?</text>
-                        </svg>
-                        <div class="tooltip__content" id="tooltip-pobreza">Información adicional sobre pobreza</div>
-                      </div>
+                    <div class="tooltip__wrapper">
+                      <svg class="tooltip__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" stroke="var(--neutralLight)" stroke-width="2" fill="none"></circle>
+                        <text x="12" y="16" text-anchor="middle" font-size="12" fill="var(--neutralLight)">?</text>
+                      </svg>
+                        <div class="tooltip__content" id="tooltip-pobreza">
+                          Canasta: <b>$709.318</b><br>
+                          Ingreso: <b>$407.171</b><br>
+                          Brecha: <b class="text__color--severeLight">-$302.147</b> 
+                        </div>
+                    </div>
                   </h3>
                   <output id="porcentaje-pobreza" class="panel__number"></output>
                   <p id="personas-pobreza" class="panel__subfix"></p>
-                    <!-- Ícono SVG de ayuda para el tooltip -->
 
                 </article>
                 <article class="kpi__wrapper--col">
-                  <h3 class="panel__prefix">Indigencia</h3>
+                  <h3 class="panel__prefix">Indigencia
+                    <div class="tooltip__wrapper">
+                      <svg class="tooltip__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" stroke="var(--neutralLight)" stroke-width="2" fill="none"></circle>
+                        <text x="12" y="16" text-anchor="middle" font-size="12" fill="var(--neutralLight)">?</text>
+                      </svg>
+                        <div class="tooltip__content" id="tooltip-indigencia">
+                          Canasta: <b>$349.073</b><br>
+                          Ingreso: <b>$232.453</b><br>
+                          Brecha: <b class="text__color--danger">-$116.620 </b> 
+                        </div>
+                    </div>
+                  </h3>
                   <output id="porcentaje-indigencia" class="panel__number"></output>
                   <p id="personas-indigencia" class="panel__subfix"></p>
-                    <!-- Ícono SVG de ayuda para el tooltip -->
-
                 </article>
+
                 <article class="kpi__wrapper--col">
-                  <h3 class="panel__prefix">Oportunidades</h3>
+                  <h3 class="panel__prefix">Oportunidades
+                    <div class="tooltip__wrapper">
+                      <svg class="tooltip__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" stroke="var(--neutralLight)" stroke-width="2" fill="none"></circle>
+                        <text x="12" y="16" text-anchor="middle" font-size="12" fill="var(--neutralLight)">?</text>
+                      </svg>
+                        <div class="tooltip__content" id="tooltip-oportunidades">
+                          Mayor acceso a salud, educación y servicios básicos.
+                        </div>
+                    </div>
+                  </h3>
                   <output id="porcentaje-noPobres" class="panel__number"></output>
                   <p id="personas-noPobres" class="panel__subfix"></p>
-                    <!-- Ícono SVG de ayuda para el tooltip -->
-
                 </article>
             </div>
           </div>
@@ -104,11 +138,13 @@
                   <img src="./assets/img/flag__arrow--down.svg" width="21" height="28"  alt="">
                 </article>
               </span>
+              <hr class="flag__divider--pob">
               <span id="oportunidades" class="flag__stripe--middle">
                 <span class="sun">
                   <output class="flag__output--middle"></output>
                 </span>
               </span>
+              <hr class="flag__divider--ind">
               <span id="indigencia" class="flag__stripe--bottom">
                 <article class="stripe__inner-wrapper--bottom">
                   <img src="./assets/img/flag__arrow--up.svg" width="21" height="28"  alt="">
@@ -125,17 +161,26 @@
             </div>
                 <!-- <figcaption>El primer semestre de 2003 y el segundo de 2015 no presentaban datos, por lo que se muestra un promerdio anual.</figcaption> -->
           </figure> 
-          <div class="input__wrapper--col">
-            <label for="" class="">Deslice el slider para cambiar de año</label>
-            <input type="range" id="yearRange" class="input__date--range" min="2003" max="2024" value="2003" oninput="updateYear(this.value)">
-            <article class="input__wrapper--row">
-              <span class="input__subfix">2003</span>
-              <span class="input__subfix">2024</span>
-            </article>
-          </div>
-          <button type="button" class="btn__outline--primary">
-            <a href="#geografico">Nuestra bandera por lugar</a>
-          </button>
+            <div class="input__wrapper--col">
+              <label for="" class="">Deslice el slider para cambiar de año</label>
+              <input type="range" id="yearRange" class="input__date--range" min="2003" max="2024" value="2003" oninput="updateYear(this.value)">
+              <article class="input__wrapper--row">
+                <span class="input__subfix">2003</span>
+                <span class="input__subfix">2024</span>
+              </article>
+            </div>
+            <div id="indicadoresHistoricos" class="btn__wrapper--row">
+              <button type="button" class="btn__link--info">
+                <img src="./assets/img/chevron__down--primary.svg" height="16" width="16">
+                <a href="#geografico">Nuestra bandera por lugar</a>
+              </button>
+              <button id="resetBtn" type="reset" class="btn__outline--primary">
+                <a href="#historico">Resetear bandera</a>
+              </button>
+              <button id="pobrezaCero" type="reset" class="btn__fill--primary">
+                <a href="#historico">Pobreza 0%</a>
+              </button>
+            </div>
         </span>
       </div>
   </section>
@@ -148,7 +193,6 @@
             <label for="regionSelect">Seleccionar Región</label>
             <div class="input__select--custom">
               <select id="regionSelect" class="form__select--custom" onchange="actualizarBanderaPorRegion()">
-                <option value="" selected>Seleccione un aglomerado</option>
               </select>
             </div>
           </span>
@@ -164,11 +208,13 @@
                   <img src="./assets/img/flag__arrow--down.svg" width="21" height="28"  alt="">
                 </article>
               </span>
+              <hr class="flag__divider--pob">
               <span id="middleRegion" class="flag__stripe--middle">
                 <span class="sun">
                   <output class="flag__output--oportunidades"></output>
                 </span>
               </span>
+              <hr class="flag__divider--ind">
               <span id="indigenciaRegion" class="flag__stripe--bottom">
                 <article class="stripe__inner-wrapper--bottom">
                   <img src="./assets/img/flag__arrow--up.svg" width="21" height="28"  alt="">
@@ -182,7 +228,6 @@
             </div>
             <div class="flag__stripe--static--bottom">
             </div>
-                <!-- <figcaption>El primer semestre de 2003 y el segundo de 2015 no presentaban datos, por lo que se muestra un promerdio anual.</figcaption> -->
           </figure> 
         </div>
         <div class="inner__wrapper--right">
@@ -193,14 +238,20 @@
                 <output id="selectedRegion" class="panel__title--xxl"></output>
               </article>
               <hr class="divider--col">
-              <article class="kpi__wrapper--col">
-                <h3 class="panel__prefix--lg">Pobreza total</h3>
-                <output id="porcentaje-pobTotal-region" class="panel__title--xl text__color--white"></output>
-                <p id="personas-pobTotal-region" class="panel__subfix--lg"></p>
-              </article>
+              <div class="wrapper--row">
+                <article class="kpi__wrapper--col">
+                  <h3 class="panel__prefix--lg">Pobreza total</h3>
+                  <output id="porcentaje-pobTotal-region" class="panel__title--xl text__color--white"></output>
+                  <p id="personas-pobTotal-region" class="panel__subfix--lg"></p>
+                </article>
+                <button id="toggleIndicadoresH" type="button" class="btn__icon--info" onclick="expandirIndicadoresG()">
+                  <img src="./assets/img/chevron__down--primary.svg" height="16" width="16">  
+                  Ver indicadores
+                </button>
+              </div>
             </span>
             <!-- KPI grid -->
-            <div class="text__wrapper--grid">
+            <div id="indicadoresRegiones" class="text__wrapper--grid">
                 <article class="kpi__wrapper--col">
                   <h3 class="panel__prefix">Pobreza</h3>
                   <output id="porcentaje-pob-region" class="panel__number"></output>
@@ -218,9 +269,16 @@
                 </article>
               </div>
             </div>
-            <button type="button" class="btn__fill--secondary">
-              <a href="#outro">Conclusión</a>
+            <hr>
+            <div class="btn__wrapper--row">
+              <button type="button" class="btn__link--info">
+                <img src="./assets/img/chevron__down--primary.svg" alt="" width="20" height="20">
+                <a href="#outro">Cuáles son las causas</a>
               </button>
+              <button id="resetButton" type="button" class="btn__fill--info">
+                <a href="#geografico">Resetear</a>
+              </button>
+            </div>
         </div>
       </div>
   </section>
@@ -234,10 +292,11 @@
         </h3>
       </span>
       <span class="panel__prefooter btn__wrapper--row">
-        <button type="button" class="btn__outline--secondary">
-        <a href="#intro">Volver al principio</a>
+        <button type="button" class="btn__outline--primary">
+          <img src="./assets/img/chevron__down--primaryDark.svg" alt="" width="20" height="20">
+        <a href="#header">Volver al principio</a>
         </button>
-        <button type="button" class="btn__fill--secondary">
+        <button type="button" class="btn__fill--primary">
           <a href="https://wa.me/?text=Check%20this%20amazing%20site:%20https%3A%2F%2Fexample.com" target="_blank">Compartir por WhatsApp</a>
         </button>
       </span>
@@ -249,8 +308,6 @@
     </div>
   </section>
 
-
-
   <!-- Insights -->
   <template id="insights">
     <h5>
@@ -260,9 +317,9 @@
 
   <footer>
     <small>
-      <b>Fuentes:</b>
-      <a href="https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_241C2355AD3A.pdf">INDEC - Incidencia de la Pobreza y de la Indigencia</a> | 
-      <a href="https://chequeado.com/el-explicador/como-evoluciono-la-pobreza-con-cada-presidente/">Chequeado en base al Cedlas (que normalizó serie INDEC) e INDEC</a>
+      <b>Fuentes:</b><br>
+      <a href="https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_241C2355AD3A.pdf" target="_blank">INDEC - Incidencia de la Pobreza y de la Indigencia</a><br>
+      <a href="https://chequeado.com/el-explicador/como-evoluciono-la-pobreza-con-cada-presidente/" target="_blank">Chequeado en base al Cedlas (que normalizó serie INDEC)</a>
     </small>
   </footer>
 

@@ -1,4 +1,11 @@
 // Select
+[disabled] {
+  filter: grayscale(1);
+  pointer-events: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
 label {
   --form__label--color: var(--neutral);
   color: var(--form__label--color);
@@ -16,10 +23,10 @@ label {
   padding: 16px;
   -webkit-appearance: none;
   appearance: none; 
-  background-image: url('./assets/img/select__chevron--down.svg');
+  background-image: url('./assets/img/chevron__down--neutralLight.svg');
   background-size: 24px;
   background-repeat: no-repeat;
-  background-position: calc(100% - 16px) center;
+  background-position: calc(100% - 24px) center;
 }
 
 .input__select--custom {

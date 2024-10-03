@@ -258,7 +258,7 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-	outline: 1px dotted ButtonText;
+	outline: 1px dotted gray;
 }
 
 /**
@@ -391,18 +391,18 @@ template {
 // Links
 a, ul, li {
 	text-decoration: none;
-	color: var(--button__text--color);
+	color: var(--button__bg--color);
 	list-style: none;
 	margin: 0;
 	padding: 0;
 
     &:hover {
-        color: var(--button__text--color);
+        color: var(--button__bg--color);
 		filter: brightness(95%);
 	}
 	
     &:visited {
-		color: var(--button__text--color);
+		color: var(--button__bg--color	);
 		filter: brightness(90%);
         }
 }

@@ -1,4 +1,22 @@
 const datosRegiones = {
+  "Seleccione una ciudad o región": {
+    "pobrezaTotal": {
+      "Porcentaje": 0,
+      "CantidadPersonas": 'Sin pobreza total'
+    },
+    "Indigencia": {
+      "Porcentaje": 0,
+      "CantidadPersonas": 'Sin indigencia'
+    },
+    "Pobreza": {
+      "Porcentaje": 0,
+      "CantidadPersonas": 'Sin pobreza'
+    },
+    "noPobreza": {
+      "Porcentaje": 100,
+      "CantidadPersonas": '26.073.470'
+    }
+  },
   "Total Nacional (31 aglomerados urbanos)": {
     "pobrezaTotal": {
       "Porcentaje": 52.9,
@@ -721,7 +739,7 @@ function actualizarBanderaPorRegion() {
       setTimeout(function() {
         indigencia.classList.remove('stripe__blink--top');
         pobreza.classList.remove('stripe__blink--bottom');
-    }, 4000);
+    }, 3000);
 }
 
 function populateSelect() {
@@ -735,6 +753,11 @@ function populateSelect() {
     regionSelect.appendChild(option);
   }
 
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "Seleccione una ciudad o región";
+  defaultOption.textContent = "Seleccione una ciudad o región";
+  regionSelect.appendChild(defaultOption);
+
   const totalOption = document.createElement("option");
   totalOption.value = "Total Nacional (31 aglomerados urbanos)";
   totalOption.textContent = "Total Nacional (31 aglomerados urbanos)";
@@ -747,3 +770,16 @@ function populateSelect() {
 }
 
   populateSelect();
+
+// Reset
+document.getElementById("resetButton").addEventListener("click", function() {
+  const select = document.getElementById("regionSelect");
+  select.value = 'Seleccione una ciudad o región';
+  actualizarBanderaPorRegion();
+
+  const topStripe =  document.getElementById('pobrezaRegion');
+  const bottomStripe =  document.getElementById('indigencia');
+  bottomStripe.classList.remove('stripe__blink--bottom');
+  topStripe.classList.remove('stripe__blink--top');
+});
+  

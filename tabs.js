@@ -1,43 +1,53 @@
   window.onload = function() {
     const selectElement = document.getElementById("regionSelect");
-    selectElement.value = "Patagonia";
+    selectElement.value = "Total Nacional (31 aglomerados urbanos)";
     actualizarBanderaPorRegion();
     // updateYear(2003);
 };
 
-function openTab(event, tabName) {
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => content.classList.remove('active'));
-  
-    const tabLinks = document.querySelectorAll('.tab-link');
-    tabLinks.forEach(link => link.classList.remove('active'));
-  
-    document.getElementById(tabName).classList.add('active');
-    event.currentTarget.classList.add('active');
-  }
-  
-  document.getElementById("defaultTab").click();
-
-
-
+// Tooltip
   document.addEventListener("DOMContentLoaded", () => {
-    const tooltipWrapper = document.querySelector('.tooltip__wrapper');
-    const tooltipContent = document.getElementById('tooltip-pobreza');
+    const tooltipWrapper = document.querySelectorAll('.tooltip__wrapper');
+    const tooltipPobreza = document.getElementById('tooltip-pobreza');
+    const tooltipOportunidades = document.getElementById('tooltip-pobreza');
+    const tooltipIndigencia = document.getElementById('tooltip-pobreza');
   
     tooltipWrapper.addEventListener('click', (event) => {
-      event.stopPropagation(); // Para evitar que el evento se propague
-      tooltipContent.style.visibility = 'visible';
-      tooltipContent.style.opacity = '1';
+      event.stopPropagation();
+      tooltipPobreza.style.visibility = 'visible';
+      tooltipPobreza.style.opacity = '1';
+      tooltipOportunidades.style.visibility = 'visible';
+      tooltipOportunidades.style.opacity = '1';
+      tooltipIndigencia.style.visibility = 'visible';
+      tooltipIndigencia.style.opacity = '1';
     });
   
     document.addEventListener('click', () => {
-      tooltipContent.style.visibility = 'hidden';
-      tooltipContent.style.opacity = '0';
+      tooltipPobreza.style.visibility = 'hidden';
+      tooltipPobreza.style.opacity = '0';
+      tooltipOportunidades.style.visibility = 'hidden';
+      tooltipOportunidades.style.opacity = '0';
+      tooltipIndigencia.style.visibility = 'hidden';
+      tooltipIndigencia.style.opacity = '0';
     });
   
     tooltipWrapper.addEventListener('mouseleave', () => {
-      tooltipContent.style.visibility = 'hidden';
-      tooltipContent.style.opacity = '0';
+      tooltipPobreza.style.visibility = 'hidden';
+      tooltipPobreza.style.opacity = '0';
+      tooltipOportunidades.style.visibility = 'hidden';
+      tooltipOportunidades.style.opacity = '0';
+      tooltipIndigencia.style.visibility = 'hidden';
+      tooltipIndigencia.style.opacity = '0';
     });
   });
   
+// Accordion
+function expandirIndicadoresH() {
+  const indicadoresHistoricos = document.getElementById('indicadoresHistoricos');
+  indicadoresHistoricos.classList.toggle('hidden');
+}
+
+function expandirIndicadoresG() {
+  const indicadoresRegiones = document.getElementById('indicadoresRegiones');
+  indicadoresRegiones.classList.toggle('hidden');
+}

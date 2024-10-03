@@ -5,6 +5,7 @@
         box-sizing: border-box;
 
         .inner__wrapper, .inner__wrapper--grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
             .panel__prefooter {
                 justify-self: center;
@@ -20,6 +21,11 @@
             grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         }
 
+
+        .btn__wrapper--row {
+            width: 100%;
+            justify-content: center!important;
+        }
 
         // Typo
 
@@ -37,6 +43,7 @@
 
         .panel__prefix {
             font-size: 10px;
+            align-self: center;
         }
 
         .panel__subfix {
@@ -55,7 +62,6 @@
             font-size: 24px;
         }
 
-
         .panel__title--xxl, .panel__title--xl {
             font-size: 36px;
         }
@@ -71,8 +77,8 @@
     }
 
     .flag {
-        --flag__width: 320px;
-        --flag__height: 240px;
+        --flag__width: 340px;
+        --flag__height: 220px;
 
         [class^=stripe__inner-wrapper] {
             transform: scale(0.75);
@@ -87,6 +93,11 @@
             row-gap: 4px;
             top: 0%;
         }
+    }
+
+
+    #toggleIndicadoresH, #toggleIndicadoresG {
+        display: block!important;
     }
 
     #intro {
@@ -112,21 +123,20 @@
 
         .inner__wrapper {
             --panel__gap: 24px;
-            flex-wrap: wrap-reverse;
+
 
             .inner__wrapper--right, .inner__wrapper--left  {
                 
                 align-items: center!important;
                 text-align: center;
 
-                .text__wrapper--grid {
-                    display: none!important;
-                }
-    
-
                 label {
                     font-size: 14px;
                     text-align: center;
+                }
+
+                .wrapper--row {
+                    --panel__wrapper--justify: space-around;
                 }
                 
                 &  > .wrapper--col {
@@ -175,7 +185,7 @@
         }
 
         .inner__wrapper {
-            flex-wrap: wrap-reverse;
+            // flex-wrap: wrap-reverse;
 
             &--right {
                 text-align: left;
@@ -184,6 +194,10 @@
             .wrapper--col {
                 flex: 1;
             }
+        }
+
+        .panel__prefix {
+            align-self: flex-start;
         }
     }
 
@@ -197,9 +211,5 @@
             text-align: center;
         }
 
-        .btn__wrapper--row {
-            width: 100%;
-            justify-content: center;
-        }
     }
 }

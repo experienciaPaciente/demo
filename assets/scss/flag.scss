@@ -37,26 +37,39 @@
       %baseDivider {
         position: absolute;
         top: var(--flag__position--top);
-        left: -20px;
-        width: calc(100% + 40px);
+        left: -8px;
+        width: calc(100% + 12px);
         border: var(--flag__divider);
         z-index: 1;
       }
 
       hr.flag__divider--bottom {
-        --flag__divider: dashed 1.25px var(--secondaryDark);
+        --flag__divider: dashed 1.5px var(--secondaryDark);
         --flag__position--top: 0%;
         @extend %baseDivider;
       }
 
+      hr.flag__divider--pob {
+        --flag__divider: dashed 1.5px var(--severe);
+        --flag__position--top: var(--flag__stripe--height);
+        @extend %baseDivider;
+      }
+
       hr.flag__divider--middle {
-        --flag__divider: dashed 1.25px var(--tertiary);
+        --flag__divider: dashed 1px var(--tertiary);
         --flag__position--top: 50%;
+        mix-blend-mode: darken;
+        @extend %baseDivider;
+      }
+
+      hr.flag__divider--ind {
+        --flag__divider: dashed 1.5px var(--danger);
+        --flag__position--top: var(--flag__stripe--height);
         @extend %baseDivider;
       }
 
       hr.flag__divider--top {
-        --flag__divider: dashed 1.25px var(--secondaryDark);
+        --flag__divider: dashed 1.5px var(--secondaryDark);
         --flag__position--top: 100%;
         @extend %baseDivider;
       }
@@ -85,7 +98,7 @@
     }
     
     .stripe__blink--top {
-      animation: infinite blinkTop 1s;
+      animation: infinite blinkTop 2s;
     }
 
     @keyframes blinkTop {
@@ -114,7 +127,7 @@
     }
 
     .stripe__blink--bottom {
-      animation: infinite blinkBottom 1s;
+      animation: infinite blinkBottom 2s;
     }
 
     @keyframes blinkBottom {
@@ -139,14 +152,14 @@
       align-items: center;
       position: absolute;
       z-index: 2;
-      mix-blend-mode: hard-light;
+      // mix-blend-mode: hard-light;
     }
 
     .stripe__inner-wrapper {
 
       &--top {
         @extend %baseWrapper;
-        bottom: 25%;
+        bottom: 20%;
       }
       
       &--bottom {
@@ -162,14 +175,14 @@
     }
 
     .flag__output--top, .flag__output--pob {
-    --output__font--size: 21px;
+    --output__font--size: 18px;
     @extend %baseOutput;
     font-size: var(--output__font--size);
     color: var(--severe--dark);
     }
 
     .flag__output--bottom, .flag__output--ind {
-    --output__font--size: 21px;
+    --output__font--size: 18px;
     @extend %baseOutput;
     font-size: var(--output__font--size);
     color: var(--danger--dark);
@@ -190,18 +203,22 @@
     } 
 
     .flag__stripe--middle {
+      --flag__padding: 14px;
+      --flag__translate: 72px;
+
       height: var(--flag__stripe--height);
       position: relative;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
+      column-gap: 56px;
       align-items: center;
-      padding: 10px 0;
+      padding: var(--flag__padding) 0;
       box-sizing: border-box;
       background-color: white;
 
       .sun {
-        --sun__width: calc(var(--flag__stripe--height) / 4.5 - 10px);
+        --sun__width: calc(var(--flag__stripe--height) / 5 - var(--flag__padding));
         width: var(--sun__width);
         height: 100%;
         border-radius: 50%;
@@ -210,12 +227,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         output {
           font-weight: bolder;
           color: var(--tertiaryDark);
           mix-blend-mode: multiply;
-          font-size: var(--flag__stripe--height);
+          font-size: calc(var(--flag__stripe--height));
+          position: absolute;
+          text-wrap: wrap;
+          text-align: center;
         }
       }
     }

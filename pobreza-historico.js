@@ -1,5 +1,13 @@
 const datos = [
   {
+    año: 0,
+    pobrezaTotal: { porcentaje: 0, cantidad: '0' },
+    indigencia: { porcentaje: 0, cantidad: '0' },
+    pobreza: { porcentaje: 0, cantidad: '0' },
+    poblacionTotal: '46.052.000',
+    noPobres: { porcentaje: 100, cantidad: '46.052.000' }
+  },
+  {
     año: 2003,
     pobrezaTotal: { porcentaje: 58.2, cantidad: '22.270.000' },
     indigencia: { porcentaje: 21.1, cantidad: '8.058.000' },
@@ -184,9 +192,9 @@ function updateYear(selectedYear) {
   const data = datos.find(d => d.año == selectedYear);
   
   if (data) {
-    const pobrezaHeight = data.pobreza.porcentaje;
-    const indigenciaHeight = data.indigencia.porcentaje;
-    const middleStripeHeight = 100 - pobrezaHeight - indigenciaHeight;
+    let pobrezaHeight = data.pobreza.porcentaje;
+    let indigenciaHeight = data.indigencia.porcentaje;
+    let middleStripeHeight = 100 - pobrezaHeight - indigenciaHeight;
 
     document.getElementById('pobreza').style.setProperty('--flag__stripe--height', pobrezaHeight + '%');
     document.getElementById('indigencia').style.setProperty('--flag__stripe--height', indigenciaHeight + '%');
@@ -226,19 +234,79 @@ function updateYear(selectedYear) {
     
     // Blink effect
     const slider = document.getElementById('yearRange');
-    const topStripe =  document.getElementById('pobreza');
-    const bottomStripe =  document.getElementById('indigencia');
+
     slider.onchange = function () {
       document.querySelector('.flag__stripe--bottom').classList.add('stripe__blink--bottom');
       document.querySelector('.flag__stripe--top').classList.add('stripe__blink--top');
+      const bottomStripe = document.getElementById('.flag__stripe--bottom');
+      const topStripe = document.getElementById('.flag__stripe--top');
         setTimeout(function() {
           bottomStripe.classList.remove('stripe__blink--bottom');
           topStripe.classList.remove('stripe__blink--top');
-      }, 4000);
+      }, 3000);
     }
   }
 }
 
 updateYear(2003);
+
+// Reset
+document.getElementById("resetBtn").addEventListener("click", function() {
+  const rangeInput = document.getElementById("yearRange");
+  rangeInput.disabled = false;
+  rangeInput.value = 0;
+  updateYear(2003);
+})
+
+// Pobreza 0%
+document.getElementById("pobrezaCero").addEventListener("click", function() {
+  const rangeInput = document.getElementById("yearRange");
+  rangeInput.disabled = true;
+  rangeInput.value = 0;
+  updateYear(0);
   
+  const topStripe =  document.getElementById('pobreza');
+  const bottomStripe =  document.getElementById('indigencia');
+  bottomStripe.classList.remove('stripe__blink--bottom');
+  topStripe.classList.remove('stripe__blink--top');
+
+  let pobrezaHeight = 0;
+  let indigenciaHeight = 0;
+  let middleStripeHeight = 100 - pobrezaHeight - indigenciaHeight;
+
+  document.getElementById('pobreza').style.setProperty('--flag__stripe--height', pobrezaHeight + '%');
+  document.getElementById('indigencia').style.setProperty('--flag__stripe--height', indigenciaHeight + '%');
+  document.getElementById('oportunidades').style.setProperty('--flag__stripe--height', middleStripeHeight + '%');
+
+
+  const porcentajePobrezaTotal = document.getElementById('porcentaje-pobrezaTotal');
+  const porcentajePobreza = document.getElementById('porcentaje-pobreza');
+  const porcentajeIndigencia = document.getElementById('porcentaje-indigencia');
+  const porcentajeNoPobres = document.getElementById('porcentaje-noPobres');
+
+  const personasPobrezaTotal = document.getElementById('personas-pobrezaTotal');
+  const personasPobreza = document.getElementById('personas-pobreza');
+  const personasIndigencia = document.getElementById('personas-indigencia');
+  const personasNoPobres = document.getElementById('personas-noPobres');
+
+  personasPobreza.textContent = `${data[0].pobreza.cantidad} personas`;
+  personasPobrezaTotal.textContent = `${data[0].pobrezaTotal.cantidad} personas`;
+  personasIndigencia.textContent = `${data[0].indigencia.cantidad} personas`;
+  personasNoPobres.textContent = `${data[0].noPobres.cantidad} personas`;
+
+  const holderPorcentajePob = document.querySelector('.flag__output--top');
+  const holderPorcentajeNoPobres = document.querySelector('.flag__output--middle');
+  const holderPorcentajeInd = document.querySelector('.flag__output--bottom');
+  const holderPorcentajePobTotal = document.querySelector('.flag__output');
+  
+  porcentajePobrezaTotal.textContent = `${data[0].pobrezaTotal.porcentaje}%`;
+  porcentajePobreza.textContent = `${data[0].pobreza.porcentaje}%`;
+  porcentajeIndigencia.textContent = `${data[0].indigencia.porcentaje}%`;
+  porcentajeNoPobres.textContent = `${data[0].noPobres.porcentaje}%`;
+
+  holderPorcentajePobTotal.textContent = `${data[0].poblacionTotal} hab.`;
+  holderPorcentajePob.textContent = `${data[0].pobreza.porcentaje}%`;
+  holderPorcentajeInd.textContent = `${data[0].indigencia.porcentaje}%`;
+  holderPorcentajeNoPobres.textContent = `${data[0].noPobres.porcentaje}% oportunidades`;
+});
   
