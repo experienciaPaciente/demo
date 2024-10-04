@@ -1,5 +1,15 @@
 @media screen and (max-width: 980px) {
 
+    header.page__header {
+        .header__logo--desktop {
+            display: none!important;
+        }
+
+        .header__logo--responsive {
+            display: block!important;
+        }
+    }
+
     .section__panel {
         --panel__padding: 10vh 7.5vw;
         box-sizing: border-box;
@@ -25,6 +35,7 @@
         .btn__wrapper--row {
             width: 100%;
             justify-content: center!important;
+            flex-wrap: wrap-reverse;
         }
 
         // Typo

@@ -13,12 +13,26 @@
     font-weight: bolder;
 }
 
+#geografico {
+    .tooltip__content {
+    --tooltip__bg--color: var(--neutral);
+    --tooltip__text--color: var(--primaryDark);
+
+    background-color: var(--tooltip__bg--color);
+    color: var(--tooltip__text--color);
+    }
+}
+
+
 .tooltip__content {
+    --tooltip__bg--color: var(--primaryDark);
+    --tooltip__text--color: var(--secondaryLight);
+
     position: absolute;
     top: -70px;
     right: -24px;
-    background-color: var(--primaryDark);
-    color: var(--secondaryLight);
+    background-color: var(--tooltip__bg--color);
+    color: var(--tooltip__text--color);
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 12px;

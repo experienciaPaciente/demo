@@ -11,7 +11,6 @@ label {
   color: var(--form__label--color);
   font-size: 16px;
   font-weight: 500;
-  // text-transform: uppercase;
 }
 
 %baseSelect {
@@ -20,13 +19,13 @@ label {
   background-color: transparent;
   color: var(--secondary);
   font-size: 18px;
-  padding: 16px;
+  padding: 16px 48px 16px 16px;
   -webkit-appearance: none;
   appearance: none; 
   background-image: url('./assets/img/chevron__down--neutralLight.svg');
   background-size: 24px;
   background-repeat: no-repeat;
-  background-position: calc(100% - 24px) center;
+  background-position: calc(100% - 16px) center;
 }
 
 .input__select--custom {

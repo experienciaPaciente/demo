@@ -9,8 +9,10 @@
 @import './assets/scss/tabs.scss';
 @import './assets/scss/inputs.scss';
 @import './assets/scss/tooltip.scss';
+@import './assets/scss/modal.scss';
 
 :root {
+
     // Panel
     --panel__title--align: left;
     --panel__title--size: 36px;
@@ -23,6 +25,15 @@
     --panel__title--color: var(var(--primary));
 
     --text__wrapper--gap: 48px;
+
+    // Modal
+    --modal__bg-color: white;
+    --modal__overlay-bg: rgba(0, 0, 0, 0.6);
+    --modal__header-bg: #f5f5f5;
+    --modal__padding: 20px;
+    --modal__width: 72vw;
+    --modal__height: 48vh;
+    --modal__border-radius: 8px;
 
     // Header
     --header__height: 60px;

@@ -1,4 +1,4 @@
-header {
+header.page__header {
     --page__body--padding: 6rem;
 
     display: flex;
@@ -12,13 +12,13 @@ header {
     box-sizing: border-box;
     box-shadow: var(--box-shadow);
     position: sticky;
-    
-    @media screen and (max-width: 979px) {
-        --page__body--padding: 2rem;
+        
+    .header__logo--desktop {
+        display: block;
+    }
 
-        #ep__logo--desktop {
-            display: none;
-        }
+    .header__logo--responsive {
+        display: none;
     }
 
     div {
@@ -30,9 +30,5 @@ header {
         i {
             font-size: var(--icon--size);
         }
-    }
-
-    div ~ i.fa-bars {
-        display: none;
     }
 }
