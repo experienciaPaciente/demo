@@ -61,9 +61,19 @@ button {
         --button__font--size: 12px;
     }
 
-    &:hover, &:active, &:visited {
-        filter: brightness(95%);
-        cursor: pointer;
+    &[size=md] {
+        --button__font--size: 18px;
+    }
+
+    &[size=lg] {
+        --button__font--size: 24px;
+    }
+
+    &:not([class*='__outline']) {
+        &:hover, &:active, &:visited {
+            filter: brightness(95%);
+            cursor: pointer;
+        } 
     }
     
     &[disabled] {
@@ -102,7 +112,7 @@ button {
         }
 
         &:hover, &:active, &:visited {
-            background-color: lighten(#8189B0, 1%);
+            background-color: var(--secondary);
         }
     }
 
@@ -122,7 +132,7 @@ button {
         --button__text--color: var(--button__color);
         background: transparent!important;
         border: solid 2px var(--button__color);
-        padding: 0.5rem 0.75rem;
+        padding: 8px;
     }
 
     // Colors

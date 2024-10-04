@@ -129,7 +129,7 @@
   width: 100%;
   height: fit-content;
   opacity: 1;
-  transition: height 1s ease-in, opacity 0.25s ease-in;
+  transition: height 1s ease-in, opacity 0.5s ease-in;
 }
 .section__panel #toggleIndicadoresH, .section__panel #toggleIndicadoresG {
   display: none;
@@ -137,6 +137,20 @@
 .section__panel .hidden {
   height: 0;
   opacity: 0;
+}
+.section__panel .fade-out {
+  animation: forwards fadeOut 3.6s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .section__panel #porcentaje-indigencia {
   --kpi__color: var(--danger);
@@ -153,6 +167,9 @@
 .section__panel .text__color--primary {
   color: var(--primary);
 }
+.section__panel .text__color--primaryDark {
+  color: var(--primaryDark);
+}
 .section__panel .text__color--secondary {
   color: var(--secondary);
 }
@@ -165,11 +182,22 @@
 .section__panel .text__color--severeLight {
   color: var(--severe--light);
 }
+.section__panel .text__color--severeDark {
+  color: var(--severe--dark);
+}
 .section__panel .text__color--danger {
   color: var(--danger);
 }
+.section__panel .text__color--dangerDark {
+  color: var(--danger--dark);
+}
 .section__panel .text__color--white {
   color: white;
+  display: inline-block;
+  /* Needed for transitions to work on inline elements */
+  transition: opacity 2s ease-in-out;
+  /* Transition for the opacity */
+  opacity: 1;
 }
 .section__panel .text__color--neutral {
   color: var(--neutral);
@@ -233,6 +261,7 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--panel__gap);
+  justify-content: center;
 }
 
 .panel__prefix {
@@ -243,6 +272,7 @@
   text-wrap: nowrap;
   position: relative;
   width: fit-content;
+  align-self: center;
 }
 
 .panel__prefix--lg {
@@ -912,13 +942,6 @@ a:visited, ul:visited, li:visited {
 }
 
 @media screen and (max-width: 980px) {
-  header.page__header .header__logo--desktop {
-    display: none !important;
-  }
-  header.page__header .header__logo--responsive {
-    display: block !important;
-  }
-
   .section__panel {
     --panel__padding: 10vh 7.5vw;
     box-sizing: border-box;
@@ -989,7 +1012,9 @@ a:visited, ul:visited, li:visited {
   }
 
   #toggleIndicadoresH, #toggleIndicadoresG {
-    display: block !important;
+    display: flex !important;
+    column-gap: 8px;
+    align-items: center;
   }
 
   #intro {
@@ -1084,12 +1109,6 @@ header.page__header {
   box-shadow: var(--box-shadow);
   position: sticky;
 }
-header.page__header .header__logo--desktop {
-  display: block;
-}
-header.page__header .header__logo--responsive {
-  display: none;
-}
 header.page__header div {
   display: flex;
   flex-direction: row;
@@ -1150,7 +1169,13 @@ button[size=block] {
 button[size=sm] {
   --button__font--size: 12px;
 }
-button:hover, button:active, button:visited {
+button[size=md] {
+  --button__font--size: 18px;
+}
+button[size=lg] {
+  --button__font--size: 24px;
+}
+button:not([class*=__outline]):hover, button:not([class*=__outline]):active, button:not([class*=__outline]):visited {
   filter: brightness(95%);
   cursor: pointer;
 }
@@ -1183,7 +1208,7 @@ button[class*=__outline] > a {
   color: var(--button__text--color);
 }
 button[class*=__outline]:hover, button[class*=__outline]:active, button[class*=__outline]:visited {
-  background-color: #848cb2;
+  background-color: var(--secondary);
 }
 button[class*=__link] {
   --button__border--color: var(--button__color);
@@ -1199,7 +1224,7 @@ button[class*=__icon] {
   --button__text--color: var(--button__color);
   background: transparent !important;
   border: solid 2px var(--button__color);
-  padding: 0.5rem 0.75rem;
+  padding: 8px;
 }
 button[class$="--primary"] {
   --button__color: var(--primary);
@@ -1458,12 +1483,7 @@ label {
 .modal__title {
   margin: 0;
   font-size: 1.25rem;
-}
-.modal__close {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+  color: var(--primaryDark);
 }
 .modal__body {
   padding: var(--modal__padding);
@@ -1540,7 +1560,7 @@ label {
   --sun__size: 60px;
   --sun__position--top: calc(--flag__height) / 2 - var(--sun-size) / 2;
   --sun__position--bottom: calc(--flag__width) / 2 - var(--sun-size) / 2;
-  --primary: #6CBCFC;
+  --primary: #6CACE4;
   --secondary: #d0e2f8;
   --tertiary: #ffc107;
   --neutral: #8189B0;
@@ -1563,10 +1583,10 @@ label {
   --success: #23D3BD;
   --success--light: #c9f5ef;
   --success--dark: #18b09f;
-  --danger--dark: #cf4254;
+  --danger--dark: #a52839;
   --danger: #FD5B71;
   --danger--light: #fcc9d0;
-  --severe--dark: #6450a4;
+  --severe--dark: #493495;
   --severe: #8473c1;
   --severe--light: #c8b8fa;
   --button__padding--vertical: .5rem;

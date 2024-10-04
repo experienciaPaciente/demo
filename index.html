@@ -34,15 +34,16 @@
             <p class="panel__subfix--lg flag__output"></p>
           </article>
           <hr class="divider--row">
-          <article class="kpi__wrapper--col">
-            <h3 class="panel__prefix--lg">Pobreza total</h3>
-            <output id="porcentaje-pobrezaTotal" class="panel__title--xl text__color--neutralLight"></output>
-            <p id="personas-pobrezaTotal" class="panel__subfix--lg"></p>
-          </article>
-          <button id="toggleIndicadoresH" type="button" class="btn__icon--primary" onclick="expandirIndicadoresH()">
+            <article class="kpi__wrapper--col">
+              <h3 class="panel__prefix--lg">Pobreza total</h3>
+              <output id="porcentaje-pobrezaTotal" class="panel__title--xl text__color--neutralLight"></output>
+              <p id="personas-pobrezaTotal" class="panel__subfix--lg"></p>
+            </article>
+          </span>
+          <button size="block" id="toggleIndicadoresH" type="button" class="btn__icon--primary" onclick="expandirIndicadoresH()">
             <img src="./assets/img/chevron__down--primary.svg" width="16" height="16">
+            Expandir indicadores
           </button>
-        </span>
         
           <!-- KPI grid | jerarquizar pobreza total -->
           <div id="indicadoresHistoricos" class="text__wrapper--grid">
@@ -239,7 +240,7 @@
                         <div class="tooltip__content" id="tooltip-pobreza">
                           Canasta: <b>$709.318</b><br>
                           Ingreso: <b>$407.171</b><br>
-                          Brecha: <b class="text__color--severeLight">-$302.147</b> 
+                          Brecha: <b class="text__color--severeDark">-$302.147</b> 
                         </div>
                     </div>
                   </h3>
@@ -256,7 +257,7 @@
                         <div class="tooltip__content" id="tooltip-indigencia">
                           Canasta: <b>$349.073</b><br>
                           Ingreso: <b>$232.453</b><br>
-                          Brecha: <b class="text__color--danger">-$116.620 </b> 
+                          Brecha: <b class="text__color--dangerDark">-$116.620 </b> 
                         </div>
                     </div>
                   </h3>
@@ -320,6 +321,7 @@
   <script defer src="./assets/js/accordion.js"></script>
   <script defer src="./assets/js/modal.js"></script>
   <script defer src="./assets/js/tooltip.js"></script>
+  <script defer src="./assets/js/dinamicTitle.js"></script>
   <script defer>includeHTML();</script>
 </body>
 </html>

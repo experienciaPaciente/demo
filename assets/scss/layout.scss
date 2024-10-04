@@ -157,7 +157,7 @@
         width: 100%;
         height: fit-content;
         opacity: 1;
-        transition: height 1s ease-in, opacity 0.25s ease-in;
+        transition: height 1s ease-in, opacity 0.5s ease-in;
     }
 
     #toggleIndicadoresH, #toggleIndicadoresG {
@@ -168,6 +168,25 @@
         height: 0;
         opacity: 0;
     }
+
+    .fade-out {
+        animation: forwards fadeOut 3.6s;
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+
+        25% {
+            opacity: .5;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
 
     #porcentaje-indigencia {
         --kpi__color: var(--danger);
@@ -190,6 +209,10 @@
     .text__color--primary {
         color: var(--primary);
     }
+    
+    .text__color--primaryDark {
+        color: var(--primaryDark);
+    }
 
     .text__color--secondary {
         color: var(--secondary);
@@ -207,12 +230,23 @@
         color: var(--severe--light);
     }
 
+    .text__color--severeDark {
+        color: var(--severe--dark);
+    }
+
     .text__color--danger {
         color: var(--danger);
     }
 
+    .text__color--dangerDark {
+        color: var(--danger--dark);
+    }
+
     .text__color--white {
         color: white;
+        display: inline-block; /* Needed for transitions to work on inline elements */
+        transition: opacity 2s ease-in-out; /* Transition for the opacity */
+        opacity: 1;
     }
 
     .text__color--neutral {
@@ -282,14 +316,14 @@
     }
 }
 
-
-
 .kpi__wrapper--col {
     --panel__gap: 10px;
 
     display: flex;
     flex-direction: column;
     row-gap: var(--panel__gap);
+    justify-content: center;
+    // text-align: center;
 }
 
 .panel__prefix {
@@ -300,6 +334,7 @@
     text-wrap: nowrap;
     position: relative;
     width: fit-content;
+    align-self: center;
 }
 
 

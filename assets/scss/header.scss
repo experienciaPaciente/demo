@@ -13,13 +13,13 @@ header.page__header {
     box-shadow: var(--box-shadow);
     position: sticky;
         
-    .header__logo--desktop {
-        display: block;
-    }
+    // .header__logo--desktop {
+    //     display: block;
+    // }
 
-    .header__logo--responsive {
-        display: none;
-    }
+    // .header__logo--responsive {
+    //     display: none;
+    // }
 
     div {
         display: flex;

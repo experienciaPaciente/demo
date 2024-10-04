@@ -45,15 +45,9 @@
     &__title {
       margin: 0;
       font-size: 1.25rem;
+      color: var(--primaryDark);
     }
-  
-    &__close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  
+
     &__body {
       padding: var(--modal__padding);
     }

@@ -1,13 +1,13 @@
 @media screen and (max-width: 980px) {
 
     header.page__header {
-        .header__logo--desktop {
-            display: none!important;
-        }
+        // .header__logo--desktop {
+        //     display: none!important;
+        // }
 
-        .header__logo--responsive {
-            display: block!important;
-        }
+        // .header__logo--responsive {
+        //     display: block!important;
+        // }
     }
 
     .section__panel {
@@ -108,7 +108,9 @@
 
 
     #toggleIndicadoresH, #toggleIndicadoresG {
-        display: block!important;
+        display: flex!important;
+        column-gap: 8px;
+        align-items: center;
     }
 
     #intro {
