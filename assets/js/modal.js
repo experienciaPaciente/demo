@@ -15,9 +15,8 @@ includeHTML(() => {
         });
           overlay.addEventListener('click', () => {
           modal.classList.remove('modal--active');
+          document.body.style.overflow = '';  
         });
-      } else {
-        console.error("One or more modal elements were not found in the DOM.");
       }
   });
   

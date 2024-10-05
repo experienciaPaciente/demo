@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <script src="./assets/js/includeHTML.js"></script>
   <title>QuieroMiBandera</title>
 </head>
@@ -167,13 +168,6 @@
       <!-- Contenedor interno -->
       <div class="inner__wrapper">
         <div class="inner__wrapper--left">
-          <span class="input__wrapper--col">
-            <label for="regionSelect">Seleccionar Región</label>
-            <div class="input__select--custom">
-              <select id="regionSelect" class="form__select--custom" onchange="actualizarBanderaPorRegion()">
-              </select>
-            </div>
-          </span>
           <!-- Bandera regiones -->
           <figure class="flag">
             <div class="flag__stripe--static--top">
@@ -207,12 +201,28 @@
             <div class="flag__stripe--static--bottom">
             </div>
           </figure> 
+          <span id="regionSelectWrapper" class="input__wrapper--col">
+            <label for="regionSelect">Seleccionar Región</label>
+            <div class="input__select--custom">
+                <select id="regionSelect" class="input__select--custom" onchange="actualizarBanderaPorRegion('regionSelect')">
+                </select>
+            </div>
+          </span>
         </div>
         <div class="inner__wrapper--right">
           <div class="wrapper--col">
             <span class="wrapper--col">
               <article class="kpi__wrapper--col">
-                <h3 class="panel__prefix--lg">Región seleccionada</h3>
+                <div class="text__wrapper--row">
+                  <h3 class="panel__prefix--lg">Región seleccionada</h3>
+                  <button type="button" size="sm" class="btn__fill--primary">
+                    <img src="./assets/img/chevron__down--neutralLight.svg" width="16" height="16" alt="">
+                    <select id="customSelect" class="input__select--ghost" onchange="actualizarBanderaPorRegion('customSelect')">
+                      <option selected value="Total Nacional (31 aglomerados urbanos)">Total Nacional (31 aglomerados urbanos)</option>
+                    </select>
+                    <a href="#geografico">Cambiar región</a>
+                  </button>
+                </div>
                 <output id="selectedRegion" class="panel__title--xxl"></output>
               </article>
               <hr class="divider--col">
@@ -287,8 +297,8 @@
                 <img src="./assets/img/chevron__down--primary.svg" alt="" width="16" height="16">
                 <a href="#outro">Cuáles son las causas</a>
               </button>
-              <button id="resetButton" type="button" class="btn__fill--primary">
-                <img src="./assets/img/icon__refresh--white.svg" height="16" width="16">
+              <button id="resetButton" type="button" class="btn__outline--primary">
+                <img src="./assets/img/icon__refresh--primary.svg" height="16" width="16">
                 <a href="#geografico">Resetear bandera</a>
               </button>
             </div>
@@ -309,8 +319,8 @@
   <footer class="page__footer">
     <small>
       <b>Fuentes:</b><br>
-      <a href="https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_241C2355AD3A.pdf" target="_blank">INDEC - Incidencia de la Pobreza y de la Indigencia</a><br>
-      <a href="https://chequeado.com/el-explicador/como-evoluciono-la-pobreza-con-cada-presidente/" target="_blank">Chequeado en base al Cedlas (que normalizó serie INDEC)</a>
+      <a href="https://www.indec.gob.ar/uploads/informesdeprensa/eph_pobreza_09_241C2355AD3A.pdf" target="_blank"><b>INDEC - </b>Incidencia de la Pobreza y de la Indigencia.</a> | 
+      <a href="https://chequeado.com/el-explicador/como-evoluciono-la-pobreza-con-cada-presidente/" target="_blank"><b>Chequeado - </b>Basado en el Cedlas que normalizó serie INDEC.</a>
     </small>
   </footer>
 

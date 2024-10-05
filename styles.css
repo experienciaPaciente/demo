@@ -121,6 +121,9 @@
   display: flex;
   flex-direction: row;
   column-gap: var(--text__wrapper--gap);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .section__panel .text__wrapper--grid {
   display: grid;
@@ -261,7 +264,6 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--panel__gap);
-  justify-content: center;
 }
 
 .panel__prefix {
@@ -272,7 +274,6 @@
   text-wrap: nowrap;
   position: relative;
   width: fit-content;
-  align-self: center;
 }
 
 .panel__prefix--lg {
@@ -313,10 +314,20 @@
   background-color: var(--panel__bg);
   flex-wrap: wrap-reverse;
 }
+#historico.section__panel .btn__wrapper--row {
+  justify-content: flex-end;
+}
 #geografico {
   --panel__bg: var(--primaryDark);
   background-color: var(--panel__bg);
   color: white;
+}
+#geografico .inner__wrapper .inner__wrapper--left {
+  --panel__wrapper--justify: flex-start;
+}
+#geografico .inner__wrapper .kpi__wrapper--col {
+  align-items: flex-start;
+  width: 100%;
 }
 #geografico .panel__title {
   --panel__title--color: var(--secondaryLight);
@@ -333,6 +344,8 @@
   color: var(--neutralLight);
 }
 #geografico .panel__prefix {
+  display: flex;
+  align-items: flex-start !important;
   color: var(--neutral);
 }
 #geografico .panel__subfix {
@@ -352,10 +365,6 @@
 }
 #geografico #porcentaje-noPob-region {
   --kpi__color: var(--tertiary);
-}
-
-#historico.section__panel .btn__wrapper--row {
-  justify-content: flex-end;
 }
 
 #outro {
@@ -948,6 +957,7 @@ a:visited, ul:visited, li:visited {
   }
   .section__panel .inner__wrapper, .section__panel .inner__wrapper--grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 48px;
   }
   .section__panel .inner__wrapper .panel__prefooter, .section__panel .inner__wrapper--grid .panel__prefooter {
     justify-self: center;
@@ -1082,6 +1092,9 @@ a:visited, ul:visited, li:visited {
   }
   #geografico .inner__wrapper .wrapper--col {
     flex: 1;
+  }
+  #geografico .inner__wrapper #regionSelectWrapper {
+    display: none !important;
   }
   #geografico .panel__prefix {
     align-self: flex-start;
@@ -1281,6 +1294,15 @@ label {
   color: var(--form__label--color);
   font-size: 16px;
   font-weight: 500;
+}
+
+.input__select--ghost {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden !important;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .input__select--custom select:active, .input__select--custom select.focus, .input__select--custom select:focus-visible, .input__select--custom select {
@@ -1487,6 +1509,9 @@ label {
 }
 .modal__body {
   padding: var(--modal__padding);
+  font-size: 16px;
+  color: var(--neutralDark);
+  line-height: 1.5;
 }
 .modal__image {
   max-width: 100%;

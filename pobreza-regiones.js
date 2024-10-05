@@ -670,8 +670,8 @@ const datosRegiones = {
 };
 
 
-function actualizarBanderaPorRegion() {
-  const select = document.getElementById("regionSelect");
+function actualizarBanderaPorRegion(selectId) {
+  const select = document.getElementById(selectId);
   const regionSeleccionada = select.value;
   
   let datosSeleccionados;
@@ -742,9 +742,9 @@ function actualizarBanderaPorRegion() {
     }, 3000);
 }
 
-function populateSelect() {
+function populateSelect(selectId) {
 
-  const regionSelect = document.getElementById("regionSelect");
+  const regionSelect = document.getElementById(selectId);
 
   for (const region in datosRegiones["Regiones"]) {
     const option = document.createElement("option");
@@ -769,13 +769,17 @@ function populateSelect() {
   regionSelect.appendChild(interiorOption);
 }
 
-  populateSelect();
+  populateSelect("regionSelect");
+  populateSelect("customSelect");
 
 // Reset
 document.getElementById("resetButton").addEventListener("click", function() {
-  const select = document.getElementById("regionSelect");
-  select.value = 'Seleccione una ciudad o región';
-  actualizarBanderaPorRegion();
+  const select1 = document.getElementById("customSelect");
+  const select2 = document.getElementById("regionSelect");
+  select1.value = 'Seleccione una ciudad o región';
+  select2.value = 'Seleccione una ciudad o región';
+  actualizarBanderaPorRegion("regionSelect");
+  actualizarBanderaPorRegion("customSelect");
 
   const topStripe =  document.getElementById('pobrezaRegion');
   const bottomStripe =  document.getElementById('indigencia');

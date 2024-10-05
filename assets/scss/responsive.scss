@@ -16,6 +16,7 @@
 
         .inner__wrapper, .inner__wrapper--grid {
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
 
             .panel__prefooter {
                 justify-self: center;
@@ -198,7 +199,6 @@
         }
 
         .inner__wrapper {
-            // flex-wrap: wrap-reverse;
 
             &--right {
                 text-align: left;
@@ -206,6 +206,10 @@
 
             .wrapper--col {
                 flex: 1;
+            }
+
+            #regionSelectWrapper {
+                display: none!important;
             }
         }
 

@@ -1,7 +1,8 @@
   window.onload = function() {
     const selectElement = document.getElementById("regionSelect");
     selectElement.value = "Total Nacional (31 aglomerados urbanos)";
-    actualizarBanderaPorRegion();
+    actualizarBanderaPorRegion('regionSelect');
+    actualizarBanderaPorRegion('customSelect');
     // updateYear(2003);
     
     checkScreenWidth = () => {

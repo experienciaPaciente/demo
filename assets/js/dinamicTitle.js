@@ -1,6 +1,6 @@
 includeHTML(() => {
 
-const additionalWords = ['laborales', 'sanitarias', 'educativas', 'de acceso', 'de crecimiento', 'de pertenencia', 'de igualdad'];
+const additionalWords = ['laborales', 'sanitarias', 'educativas', 'económicas', 'de crecimiento', 'de pertenencia', 'de igualdad'];
 
 function addDynamicWord() {
   const titleElement = document.getElementById('dynamicTitle');
