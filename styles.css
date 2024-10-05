@@ -74,7 +74,7 @@
 }
 .section__panel .inner__wrapper--grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   grid-template-rows: 60px auto auto;
   grid-auto-flow: row dense;
   row-gap: var(--panel__gap);
@@ -120,7 +120,6 @@
 .section__panel .text__wrapper--row {
   display: flex;
   flex-direction: row;
-  column-gap: var(--text__wrapper--gap);
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -379,7 +378,6 @@
 }
 
 footer.page__footer {
-  min-height: 40px;
   height: var(--footer__height);
   background-color: var(--primaryDark);
   padding: 12px var(--panel__padding);
@@ -956,6 +954,7 @@ a:visited, ul:visited, li:visited {
     box-sizing: border-box;
   }
   .section__panel .inner__wrapper, .section__panel .inner__wrapper--grid {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 48px;
   }
@@ -974,11 +973,8 @@ a:visited, ul:visited, li:visited {
     justify-content: center !important;
     flex-wrap: wrap-reverse;
   }
-  .section__panel .panel__title, .section__panel .panel__title--center {
+  .section__panel .panel__title, .section__panel .panel__title--center, .section__panel .panel__title--xxl, .section__panel .panel__title--xl {
     --panel__title--size: 28px;
-  }
-  .section__panel .panel__title--xxl {
-    --panel__title--size: 48px;
   }
   .section__panel .panel__subtitle, .section__panel .panel__subtitle--center {
     --panel__subtitle--size: 16px;
@@ -999,12 +995,10 @@ a:visited, ul:visited, li:visited {
   .section__panel .panel__number {
     font-size: 24px;
   }
-  .section__panel .panel__title--xxl, .section__panel .panel__title--xl {
-    font-size: 36px;
-  }
   .section__panel .input__subfix {
     font-size: 12px;
   }
+
   .flag {
     --flag__width: 340px;
     --flag__height: 220px;
@@ -1100,6 +1094,9 @@ a:visited, ul:visited, li:visited {
     align-self: flex-start;
   }
 
+  #outro .inner__wrapper--grid {
+    grid-template-rows: unset;
+  }
   #outro .inner__wrapper--left {
     justify-content: flex-start;
     height: min-content;

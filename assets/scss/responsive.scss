@@ -1,20 +1,11 @@
 @media screen and (max-width: 980px) {
 
-    header.page__header {
-        // .header__logo--desktop {
-        //     display: none!important;
-        // }
-
-        // .header__logo--responsive {
-        //     display: block!important;
-        // }
-    }
-
     .section__panel {
         --panel__padding: 10vh 7.5vw;
         box-sizing: border-box;
 
         .inner__wrapper, .inner__wrapper--grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 48px;
 
@@ -32,7 +23,6 @@
             grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
         }
 
-
         .btn__wrapper--row {
             width: 100%;
             justify-content: center!important;
@@ -40,13 +30,8 @@
         }
 
         // Typo
-
-        .panel__title, .panel__title--center {
+        .panel__title, .panel__title--center, .panel__title--xxl, .panel__title--xl {
             --panel__title--size: 28px;
-        }
-
-        .panel__title--xxl {
-            --panel__title--size: 48px;
         }
         
         .panel__subtitle, .panel__subtitle--center {
@@ -74,17 +59,9 @@
             font-size: 24px;
         }
 
-        .panel__title--xxl, .panel__title--xl {
-            font-size: 36px;
-        }
-
         // Input
         .input__subfix {
             font-size: 12px;
-        }
-
-        hr.divider--col {
-            // align-self: center;
         }
     }
 
@@ -219,6 +196,11 @@
     }
 
     #outro {
+
+        .inner__wrapper--grid {
+            grid-template-rows: unset;
+        }
+
         .inner__wrapper--left {
             justify-content: flex-start;
             height: min-content;
@@ -227,6 +209,5 @@
         .panel__title, .panel__subtitle {
             text-align: center;
         }
-
     }
 }

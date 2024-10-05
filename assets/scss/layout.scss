@@ -92,7 +92,7 @@
 
     .inner__wrapper--grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
         grid-template-rows: 60px auto auto;
         grid-auto-flow: row dense;
         row-gap: var(--panel__gap);
@@ -146,7 +146,7 @@
     .text__wrapper--row {
         display: flex;
         flex-direction: row;
-        column-gap: var(--text__wrapper--gap);
+        // column-gap: var(--text__wrapper--gap);
         align-items: center;
         justify-content: space-between;
         width: 100%;
@@ -483,7 +483,6 @@
 
 
 footer.page__footer {
-    min-height: 40px;
     height: var(--footer__height);
     background-color: var(--primaryDark);
     padding: 12px var(--panel__padding);
