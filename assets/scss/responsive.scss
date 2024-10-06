@@ -20,7 +20,8 @@
 
         .text__wrapper--grid {    
             --text__wrapper--gap: 16px;    
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            row-gap: 36px;
         }
 
         .btn__wrapper--row {
@@ -106,6 +107,10 @@
             display: none!important;
         }
 
+        .title__wrapper--col {
+            order: 2;
+        }
+
         .text__wrapper--col {
             justify-content: flex-start;
             row-gap: 24px;
@@ -114,7 +119,8 @@
 
         .inner__wrapper {
             --panel__gap: 24px;
-
+            display: flex;
+            flex-wrap: wrap-reverse;
 
             .inner__wrapper--right, .inner__wrapper--left  {
                 

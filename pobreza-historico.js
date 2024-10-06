@@ -238,8 +238,8 @@ function updateYear(selectedYear) {
     slider.onchange = function () {
       document.querySelector('.flag__stripe--bottom').classList.add('stripe__blink--bottom');
       document.querySelector('.flag__stripe--top').classList.add('stripe__blink--top');
-      const bottomStripe = document.getElementById('.flag__stripe--bottom');
-      const topStripe = document.getElementById('.flag__stripe--top');
+      const bottomStripe = document.getElementById('indigencia');
+      const topStripe = document.getElementById('pobreza');
         setTimeout(function() {
           bottomStripe.classList.remove('stripe__blink--bottom');
           topStripe.classList.remove('stripe__blink--top');
