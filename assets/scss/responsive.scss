@@ -2,12 +2,14 @@
 
     .section__panel {
         --panel__padding: 10vh 7.5vw;
+        --panel__gap: 48px;
+
         box-sizing: border-box;
 
         .inner__wrapper, .inner__wrapper--grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 48px;
+            gap: var(--panel__gap);
 
             .panel__prefooter {
                 justify-self: center;
@@ -20,7 +22,7 @@
 
         .text__wrapper--grid {    
             --text__wrapper--gap: 16px;    
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
             row-gap: 36px;
         }
 
@@ -99,16 +101,16 @@
             
             align-items: center!important;
         }
+
+        figcaption {
+            display: none;
+        }
     }
 
     #historico {
 
         .panel__title--center, .panel__subtitle--center {
             display: none!important;
-        }
-
-        .title__wrapper--col {
-            order: 2;
         }
 
         .text__wrapper--col {
@@ -120,7 +122,6 @@
         .inner__wrapper {
             --panel__gap: 24px;
             display: flex;
-            flex-wrap: wrap-reverse;
 
             .inner__wrapper--right, .inner__wrapper--left  {
                 

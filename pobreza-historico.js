@@ -188,6 +188,7 @@ const datos = [
 
 function updateYear(selectedYear) {
   document.getElementById('selectedYear').innerText = selectedYear;
+  document.getElementById('yearRangeSelected').innerText = selectedYear;
 
   const data = datos.find(d => d.año == selectedYear);
   

@@ -30,7 +30,7 @@
   row-gap: var(--panel__gap);
 }
 .section__panel .inner__wrapper .inner__wrapper--left {
-  --panel__gap: 36px;
+  --panel__gap: 48px;
   --panel__wrapper--justify: space-between;
   --panel__wrapper--direction: column;
 }
@@ -68,7 +68,7 @@
   border: transparent;
 }
 .section__panel .inner__wrapper .inner__wrapper--right {
-  --panel__gap: 36px;
+  --panel__gap: 48px;
   --panel__wrapper--justify: space-between;
   --panel__wrapper--direction: column;
 }
@@ -952,12 +952,13 @@ a:visited, ul:visited, li:visited {
 @media screen and (max-width: 980px) {
   .section__panel {
     --panel__padding: 10vh 7.5vw;
+    --panel__gap: 48px;
     box-sizing: border-box;
   }
   .section__panel .inner__wrapper, .section__panel .inner__wrapper--grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 48px;
+    gap: var(--panel__gap);
   }
   .section__panel .inner__wrapper .panel__prefooter, .section__panel .inner__wrapper--grid .panel__prefooter {
     justify-self: center;
@@ -967,7 +968,7 @@ a:visited, ul:visited, li:visited {
   }
   .section__panel .text__wrapper--grid {
     --text__wrapper--gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     row-gap: 36px;
   }
   .section__panel .btn__wrapper--row {
@@ -1029,12 +1030,12 @@ a:visited, ul:visited, li:visited {
   #intro .inner__wrapper--right, #intro .inner__wrapper--left {
     align-items: center !important;
   }
+  #intro figcaption {
+    display: none;
+  }
 
   #historico .panel__title--center, #historico .panel__subtitle--center {
     display: none !important;
-  }
-  #historico .title__wrapper--col {
-    order: 2;
   }
   #historico .text__wrapper--col {
     justify-content: flex-start;
@@ -1044,7 +1045,6 @@ a:visited, ul:visited, li:visited {
   #historico .inner__wrapper {
     --panel__gap: 24px;
     display: flex;
-    flex-wrap: wrap-reverse;
   }
   #historico .inner__wrapper .inner__wrapper--right, #historico .inner__wrapper .inner__wrapper--left {
     align-items: center !important;
@@ -1403,8 +1403,8 @@ label {
   position: absolute;
   display: inline-block;
   cursor: pointer;
-  top: -16px;
-  right: -24px;
+  top: -24px;
+  right: -14px;
 }
 
 .tooltip__icon {

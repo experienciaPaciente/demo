@@ -24,8 +24,8 @@
   <div class="inner__wrapper">
     <span class="inner__wrapper--right">
       <article class="title__wrapper--col">
-        <h2 class="panel__title">Evolución de la <b>pobreza</b> y la <b>indigencia</b> en Argentina</h2>
-        <p class="panel__subtitle">Desde los años 70, la pobreza e indigencia han fluctuado de manera ascendente. Aunque se redujeron en los 90, repuntaron durante la crisis del 2001. Las políticas sociales desde 2003 mejoraron los indicadores, pero en los años post-pandémicos ambos volvieron a empeorar.</p>
+        <h2 class="panel__title">Evolución de la <b>pobreza</b> en la Argentina</h2>
+        <p class="panel__subtitle">Si bien ha fluctuado a través de los años, se agravó considerablemente luego la crisis del 2001. Las políticas sociales desde 2003 mejoraron los indicadores, pero en los años post-pandémicos volvió a empeorar.</p>
       </article>
       <div class="wrapper--col">
         <span class="wrapper--row">
@@ -138,7 +138,8 @@
         </div>
       </figure> 
         <div class="input__wrapper--col">
-          <label for="" class="">Deslice el slider para cambiar de año</label>
+          <label for="yearRange"><b>Deslice la línea de tiempo |</b> Año: <b id="yearRangeSelected"></b>
+          </label>
           <input type="range" id="yearRange" class="input__date--range" min="2003" max="2024" value="2003" oninput="updateYear(this.value)">
           <article class="input__wrapper--row">
             <span class="input__subfix">2003</span>

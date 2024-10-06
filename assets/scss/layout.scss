@@ -32,7 +32,7 @@
         }
 
         .inner__wrapper--left {
-            --panel__gap: 36px;
+            --panel__gap: 48px;
             --panel__wrapper--justify: space-between;
             --panel__wrapper--direction: column;
             @extend %baseFlexWrapper;
@@ -81,7 +81,7 @@
         }
         
         .inner__wrapper--right {
-            --panel__gap: 36px;
+            --panel__gap: 48px;
             --panel__wrapper--justify: space-between;
             --panel__wrapper--direction: column;
 
